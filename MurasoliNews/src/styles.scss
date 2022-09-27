@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("../node_modules/primeicons/primeicons.css");
+@import url("../node_modules/primeng/resources/themes/saga-green/theme.css");
+@import url("../node_modules/primeng/resources/primeng.min.css");
+
+body {
+    margin: 0 !important;
+    background: #a00000 !important;
+    font-family: sans-serif !important;
+}
+
+.txt-ctr {
+    text-align: center !important;
+}
+
+.no-pad {
+    padding: 0 !important;
+}
+.no-pad-top {
+    padding-top: 0 !important;
+}
+.grid-center {
+    display: flex;
+    justify-content: center;
+}
+// primeng styles
+
+.p-menubar {
+    padding: 0 !important;
+    background: #333 !important;
+    border: 2px solid #787474 !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+    color: #ddd9d9 !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
+    color: #ddd9d9 !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+    color: #ddd9d9 !important;
+}
+.p-menubar .p-menubar-button {
+    color: #ddd9d9 !important;
+}
+.p-menubar .p-menubar-root-list {
+    background: #333 !important;
+}
+.p-menubar .p-menubar-button:hover {
+    color: #ddd9d9 !important;
+    background: transparent !important;
+}
+.p-menubar .p-menubar-button:focus {
+    box-shadow: 0 0 0 0.1rem #b7b1b1 !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {
+    background: #262626 !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+    background: #262626 !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
+    box-shadow: inset 0 0 0 0.15rem #b7b1b1 !important;
+}
+.p-menubar .p-submenu-list {
+    background: #333 !important;
+}
+.p-menubar .p-menuitem-link .p-menuitem-text {
+    color: #ddd9d9 !important;
+}
+.p-menubar .p-menuitem-link .p-menuitem-icon {
+    color: #ddd9d9 !important;
+}
+.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {
+    background: #333 !important;
+}
+.p-menubar .p-menuitem-link:not(.p-disabled):hover {
+    background: #333 !important;
+}
+.p-menubar .p-menuitem-link:focus {
+    box-shadow: inset 0 0 0 0.15rem #b7b1b1 !important;
+}
