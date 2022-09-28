@@ -1,0 +1,29 @@
+<div class="col-12 md:col-12 lg:col-12">
+    <div class="bar-dark"></div>
+    <div class="grid">
+        <div #col1 *ngFor="let i of contents" class="col-12 md:col-4 lg:col-4">
+            <div class="txt-ctr box-shadow home-cols-hdr"  style="height: 400px !important; overflow-y: auto;">
+                <span style="font-size: 15px;font-weight: 600;">{{i.place}}</span>
+                <div class="bar-light"></div>
+                <div>
+                    <span style="font-size: 16px; font-weight: 600;">{{i.header}}</span>
+                </div>
+                <div>
+                    <p style="text-align: left;line-height:20px">{{i.content}}</p>
+                </div>
+            </div>
+    </div>
+        <!-- <div #col2 class="col-12 md:col-4 lg:col-4">
+            <div class="txt-ctr box-shadow home-cols-hdr">
+                <span>Madurai</span>
+                <div class="bar-light"></div>
+            </div>
+        </div>
+        <div #col3 class="col-12 md:col-4 lg:col-4">
+            <div class="txt-ctr box-shadow home-cols-hdr">
+                <span>Trichy</span>
+                <div class="bar-light"></div>
+            </div>
+        </div> -->
+    </div>
+</div>
