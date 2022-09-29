@@ -1,29 +1,104 @@
 <div class="col-12 md:col-12 lg:col-12">
     <div class="bar-dark"></div>
-    <div class="grid">
-        <div #col1 *ngFor="let i of contents" class="col-12 md:col-4 lg:col-4">
-            <div class="txt-ctr box-shadow home-cols-hdr"  style="height: 400px !important; overflow-y: auto;">
-                <span style="font-size: 15px;font-weight: 600;">{{i.place}}</span>
-                <div class="bar-light"></div>
-                <div>
-                    <span style="font-size: 16px; font-weight: 600;">{{i.header}}</span>
-                </div>
-                <div>
-                    <p style="text-align: left;line-height:20px">{{i.content}}</p>
+    <div #row1 class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+            <div #col1 class="col-12 md:col-3 lg:col-3 no-pad-lft bdr-vertical-light">
+                <div class="col-12 md:col-12 lg:col-12 no-pad-top no-pad-btm">
+                    <div class="col-12 no-pad" *ngFor="let i of firstColData" style="margin-bottom: -0.7rem;">
+                        <div class="homecol-headline">
+                            <span> {{i.headLine}} </span>
+                        </div>
+                        <div class="grid">
+                            <div class="col-7 no-pad-top news-content-small no-pad-rgt">
+                                <p>{{i.news}}</p>
+                            </div>
+                            <div class="col-5 no-pad-top no-pad-lft">
+                                <div class="txt-small">{{i.incidentDate}}</div>
+                                <img src="assets/images/news/newsImg.jpg" style="width: 120px !important;" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-    </div>
-        <!-- <div #col2 class="col-12 md:col-4 lg:col-4">
-            <div class="txt-ctr box-shadow home-cols-hdr">
-                <span>Madurai</span>
-                <div class="bar-light"></div>
+
+            <div #col2 class="col-12 md:col-6 lg:col-6 bdr-vertical-light">
+                <div *ngFor="let i of secondMainColData">
+                    <div class="txt-ctr">
+                        <img src="assets/images/news/newsImg.jpg" style="width: 540px;" />
+                    </div>
+                    <div class="col-12 md:col-12 lg:col-12">
+                        <div class="homecol-headline">
+                            <span> {{i.headLine}} </span>
+                        </div>
+                        <div>
+                            <div class="txt-small">{{i.incidentDate}}</div>
+                            <div class="news-content-small">{{i.news}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 bdr-horizontal-light" *ngFor="let i of secondColData">
+                    <div class="homecol-headline">
+                        <span> {{i.headLine}} </span>
+                    </div>
+                    <div class="grid">
+                        <div class="col-7 no-pad-top news-content-small no-pad-rgt">
+                            <p>{{i.news}}</p>
+                        </div>
+                        <div class="col-5 no-pad-top no-pad-lft">
+                            <div class="txt-small">{{i.incidentDate}}</div>
+                            <img src="assets/images/news/newsImg.jpg" style="width: 120px !important;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div #col3 class="col-12 md:col-3 lg:col-3 no-pad-lft">
+                <div class="col-12 md:col-12 lg:col-12 no-pad-top no-pad-btm">
+                    <div class="col-12 no-pad" *ngFor="let i of thridColData" style="margin-bottom: -0.7rem;">
+                        <div class="homecol-headline">
+                            <span> {{i.headLine}} </span>
+                        </div>
+                        <div class="grid">
+                            <div class="col-7 no-pad-top news-content-small no-pad-rgt">
+                                <p>{{i.news}}</p>
+                            </div>
+                            <div class="col-5 no-pad-top no-pad-lft">
+                                <div class="txt-small">{{i.incidentDate}}</div>
+                                <img src="assets/images/news/newsImg.jpg" style="width: 120px !important;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div #col3 class="col-12 md:col-4 lg:col-4">
-            <div class="txt-ctr box-shadow home-cols-hdr">
-                <span>Trichy</span>
-                <div class="bar-light"></div>
+    </div>
+    <div #row2 class="col-12 md:col-12 lg:col-12 bdr-horizontal-light">
+        <div class="col-12">
+            <div class="grid">
+                <div *ngFor="let i of rowNewsData" class="col-6 md:col-3 lg:col-3 bdr-vertical-light">
+                    <div class="grid">
+                        <div class="col-6 md:col-6 lg:col-6 homecol-headline">
+                            <span> {{i.headLine}} </span>
+                        </div>
+                        <div class="col-6 md:col-6 lg:col-6">
+                            <img src="assets/images/news/newsImg.jpg" style="width: 120px !important;" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="txt-small">{{i.incidentDate}}</div>
+                        <div class="news-content-small">{{i.news}}</div>
+                    </div>
+                </div>
             </div>
-        </div> -->
+        </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+            <div class="col-4 md:col-2 lg:col-2 breaking-news">
+                <span>Breaking News</span>
+            </div>
+            <div class="col-8 md:col-10 lg:col-10 breaking-news-content">
+                <marquee>{{breakingNews}}</marquee>
+            </div>
+        </div>
     </div>
 </div>

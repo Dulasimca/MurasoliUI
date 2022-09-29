@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     // BrowserAnimationsModule,
     FormsModule,
-    MenubarModule
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
