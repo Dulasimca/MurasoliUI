@@ -14,19 +14,28 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'Home', icon: 'pi pi-fw pi-home'
+        label: 'முகப்பு', icon: 'pi pi-fw pi-home', routerLink: '/home'
       },
       {
-        label: 'Editorial', icon: 'pi pi-fw pi-pencil'
+        label: 'தலையங்கம்', icon: 'pi pi-fw pi-pencil'
       },
       {
-        label: 'About Murasoli', icon: 'pi pi-fw pi-exclamation-circle'
+        label: 'முரசொலி பற்றி', icon: 'pi pi-fw pi-exclamation-circle'
       },
       {
-        label: 'Contact', icon: 'pi pi-fw pi-phone'
+        label: 'தொடர்பு கொள்க', icon: 'pi pi-fw pi-phone'
       },
       {
-        label: 'E-Paper', icon: 'pi pi-fw pi-desktop'
+        label: 'இ – பேப்பர்', icon: 'pi pi-fw pi-desktop'
+      },
+      { 
+        label: 'சென்னை'
+      },
+      { 
+        label: 'மதுரை'
+      },
+      { 
+        label: 'கோயம்புத்தூர்'
       }
     ];
   }
