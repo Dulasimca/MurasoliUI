@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppRoutingModule } from './app-routing.module';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './news/news.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
     FlexLayoutModule,
     CommonModule,
     FormsModule,
     MenubarModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

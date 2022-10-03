@@ -88,8 +88,9 @@ body {
 //     background: rgb(189, 189, 189);
 //     border-radius: 5px;
 //   }
-// primeng styles
 
+/// ------------ primeng styles ------------------
+///menu
 .p-menubar {
     padding: 0 !important;
     // background: #333 !important;
@@ -177,3 +178,15 @@ body {
     border-radius: 0 !important;
     // border-right: 1px solid black !important;
 }
+/// dropdown
+.p-dropdown .p-dropdown-label {
+    padding: .25rem !important;
+}
+.p-dropdown:not(.p-disabled):hover {
+    border-color: #b90909 !important;
+}
+.p-dropdown:not(.p-disabled).p-focus {
+    border-color: #b90909 !important;
+    box-shadow: 0 0 0 0.1rem #f85b5b !important;
+}
+

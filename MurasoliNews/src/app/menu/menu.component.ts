@@ -19,13 +19,13 @@ export class MenuComponent implements OnInit {
       {
         label: 'செய்திகள்', icon: 'pi pi-fw pi-volume-up', 
         items: [
-          { label: 'மாநில செய்திகள்', routerLink: '/news-detail' },
+          { label: 'மாநில செய்திகள்', routerLink: '/news' },
           { label: 'தேசிய செய்திகள்', routerLink: '/news-detail' },
           { label: 'மாவட்ட செய்திகள்', routerLink: '/news-detail' },
         ]
       },
       {
-        label: 'தலையங்கம்', icon: 'pi pi-fw pi-pencil', routerLink: '/news'
+        label: 'தலையங்கம்', icon: 'pi pi-fw pi-pencil'
       },
       {
         label: 'முரசொலி பற்றி', icon: 'pi pi-fw pi-exclamation-circle'
