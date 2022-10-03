@@ -37,7 +37,7 @@ body {
 .box-shadow {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
-.homecol-headline {
+.news-title {
     font-size: 15px;
     font-weight: 600;
 }
@@ -95,7 +95,9 @@ body {
     background: #b90909 !important;
     border: 2px solid #a70505 !important;
 }
-
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+    border-bottom: 0.2px solid #540101 !important;
+}
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
     // color: #ddd9d9 !important;
     color: black !important;
