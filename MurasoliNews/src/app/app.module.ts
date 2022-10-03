@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './news/news.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NewsDetailComponent } from './news-detail/news-detail.component';
     BrowserModule,
     AppRoutingModule,
     // BrowserAnimationsModule,
+    FlexLayoutModule,
     CommonModule,
     FormsModule,
     MenubarModule,
