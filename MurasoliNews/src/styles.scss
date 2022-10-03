@@ -95,9 +95,9 @@ body {
     background: #b90909 !important;
     border: 2px solid #a70505 !important;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
-    border-bottom: 0.2px solid #540101 !important;
-}
+// .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+//     border-bottom: 0.2px solid #540101 !important;
+// }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
     // color: #ddd9d9 !important;
     color: black !important;
@@ -168,4 +168,11 @@ body {
 }
 .p-menubar .p-menuitem-link:focus {
     box-shadow: inset 0 0 0 0.15rem #db0a0a !important;
+}
+.p-menubar .p-menuitem-link {
+    padding: 0.5rem !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+    border-radius: 0 !important;
+    // border-right: 1px solid black !important;
 }
