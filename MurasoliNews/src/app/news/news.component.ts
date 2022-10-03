@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NewsComponent implements OnInit {
   title: string = '';
   newsList: any = [];
-  constructor() { }
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router) { 
+    this._activatedRoute.queryParams.subscribe(params => {
+      this.title = (params['id'] === '1') ? 'மாநில செய்திகள்' : 'தேசிய செய்திகள்';
+    });
+  }
 
   ngOnInit(): void {
-    this.title = 'மாநில செய்திகள்';
+   
     this.newsList = [
       {
         headLine: 'மாவட்ட கல்வி அலுவலகம் முன்பு  ஆரம்பப்பள்ளி ஆசிரியர் கூட்டணியினர் ஆர்ப்பாட்டம்',
@@ -29,6 +34,10 @@ export class NewsComponent implements OnInit {
         news: 'பஸ் விபத்தில் காயம் அடைந்தவர்களுக்கு அமைச்சர் ஆறுதல்'
       },
     ]
+  }
+
+  onNavigate() {
+    this._router.navigate(['/news-detail']);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   rowNewsData: any = [];
   breakingNews: string = '';
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
     this.firstColData = [
@@ -59,6 +60,10 @@ export class HomeComponent implements OnInit {
        news: "இந்தியாவில் தொடர்ந்து 3-வது நாளாக கொரோனா தினசரி பாதிப்பு 4 ஆயிரத்துக்கு கீழே பதிவானது." }
     ];
     this.breakingNews = 'இந்தியாவில் தொடர்ந்து 3-வது நாளாக கொரோனா தினசரி பாதிப்பு 4 ஆயிரத்துக்கு கீழே பதிவானது. , தமிழகத்தில் பல இடங்களில் ஆர்.எஸ்.எஸ் ஊர்வலத்திற்கு போலீசார் அனுமதி மறுப்பு';
+  }
+
+  onNavigate() {
+    this._router.navigate(['/news-detail']);
   }
 
 }

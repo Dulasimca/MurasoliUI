@@ -1,26 +1,26 @@
 <div class="col-12 md:col-12 lg:col-12">
     <div class="bar-dark"></div>
-    <div #rows class="col-12 md:col-12 lg:col-12">
-        <div>
-            <span><b>{{title}}</b></span>
-        </div>
-        <div class="col-12 bdr-horizontal-light"></div>
-        <div class="col-12 no-pad-top">
-            <p-dropdown [options]="districtOptions" [(ngModel)]="district" placeholder="அனைத்து மாவட்டங்கள்" (onChange)="onSelectDistrict()"></p-dropdown>
-        </div>
-        <div class="col-12 bdr-horizontal-light"></div>
-        <div class="grid grid-center" *ngFor="let i of newsDetails">
-            <div class="col-6 md:col-9 lg:col-9">
-                <div class="news-title"> <span> {{i.headLine}} </span> </div>
-                <div class="news-content-small no-pad-rgt">
-                    <p>{{i.news}}</p>
-                </div>
-            </div>
-            <div class="col-6 md:col-2 lg:col-2 no-pad-top no-pad-lft">
-                <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
-                <div class="txt-small">{{i.incidentDate}}</div>
+    <div class="grid grid-center">
+        <div #rows class="col-12 md:col-12 lg:col-12 no-pad-top">
+            <div>
+                <span>
+                    <h3>{{headLine}}</h3>
+                </span>
             </div>
             <div class="col-12 bdr-horizontal-light"></div>
+            <div class="grid grid-center">
+                <div class="col-8">
+                    <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                </div>
+            </div>
+            <div class="bdr-horizontal-light"></div>
+            <div class="txt-small">{{incidentDate}}</div>
+            <div class="col-12 bdr-horizontal-light"></div>
+            <div class="grid grid-center">
+                <div class="col-10 news-content-small no-pad" *ngFor="let i of list">
+                    <p style="text-align: left;">{{i}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

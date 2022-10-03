@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { DistrictNewsComponent } from './district-news/district-news.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewsDetailComponent } from './news-detail/news-detail.component';
     HeaderComponent,
     HomeComponent,
     NewsComponent,
-    NewsDetailComponent
+    NewsDetailComponent,
+    DistrictNewsComponent
   ],
   imports: [
     BrowserModule,
