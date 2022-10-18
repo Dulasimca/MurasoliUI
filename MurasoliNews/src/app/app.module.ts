@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -34,7 +35,8 @@ import { DistrictNewsComponent } from './district-news/district-news.component';
     CommonModule,
     FormsModule,
     MenubarModule,
-    DropdownModule
+    DropdownModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
