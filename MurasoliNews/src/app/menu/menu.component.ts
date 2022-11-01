@@ -28,10 +28,10 @@ export class MenuComponent implements OnInit {
         label: 'தலையங்கம்', icon: 'pi pi-fw pi-pencil'
       },
       {
-        label: 'முரசொலி பற்றி', icon: 'pi pi-fw pi-exclamation-circle'
+        label: 'முரசொலி பற்றி', icon: 'pi pi-fw pi-exclamation-circle', routerLink: '/about'
       },
       {
-        label: 'தொடர்பு கொள்க', icon: 'pi pi-fw pi-phone'
+        label: 'தொடர்பு கொள்க', icon: 'pi pi-fw pi-phone', routerLink: '/contact-us'
       },
       {
         label: 'இ – பேப்பர்', icon: 'pi pi-fw pi-paperclip'

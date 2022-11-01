@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { DistrictNewsComponent } from './district-news/district-news.component';
+import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DistrictNewsComponent } from './district-news/district-news.component';
     HomeComponent,
     NewsComponent,
     NewsDetailComponent,
-    DistrictNewsComponent
+    DistrictNewsComponent,
+    AboutComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
