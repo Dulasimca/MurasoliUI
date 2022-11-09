@@ -34,7 +34,7 @@ export class MenuComponent implements OnInit {
         label: 'தொடர்பு கொள்க', icon: 'pi pi-fw pi-phone', routerLink: '/contact-us'
       },
       {
-        label: 'இ – பேப்பர்', icon: 'pi pi-fw pi-paperclip'
+        label: 'இ – பேப்பர்', icon: 'pi pi-fw pi-paperclip', routerLink: '/e-paper'
       },
       { 
         label: 'சென்னை'

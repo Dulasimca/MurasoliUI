@@ -18,6 +18,8 @@ import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { DistrictNewsComponent } from './district-news/district-news.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { EPaperComponent } from './e-paper/e-paper.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     NewsDetailComponent,
     DistrictNewsComponent,
     AboutComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    EPaperComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FormsModule,
     MenubarModule,
     DropdownModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
