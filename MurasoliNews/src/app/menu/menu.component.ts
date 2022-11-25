@@ -35,15 +35,6 @@ export class MenuComponent implements OnInit {
       },
       {
         label: 'இ – பேப்பர்', icon: 'pi pi-fw pi-paperclip', routerLink: '/e-paper'
-      },
-      { 
-        label: 'சென்னை'
-      },
-      { 
-        label: 'மதுரை'
-      },
-      { 
-        label: 'கோயம்புத்தூர்'
       }
     ];
   }
