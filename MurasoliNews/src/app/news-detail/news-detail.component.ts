@@ -17,7 +17,7 @@ export class NewsDetailComponent implements OnInit {
   ngOnInit(): void {
     var data = this._dataSharing.getData();
     this.headLine = data.headLine;
-    this.incidentDate = this._datepipe.transform(data.incidentDate, 'MMM,dd h:mm a');
+    this.incidentDate = data.incidentDate;
     this.newsDetail = data.newsDetail;
     this.list = this.newsDetail.toString().split(',');
   }

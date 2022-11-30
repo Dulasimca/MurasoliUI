@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Converter } from '../helper/converter';
+import { AuthService } from '../services/auth.service';
 import { DataSharingService } from '../services/data-sharing.service';
 import { RestapiService } from '../services/restapi.service';
 
@@ -20,9 +21,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private _router: Router, private _restApiService: RestapiService,
     private _dataSharing: DataSharingService, private _datepipe: DatePipe,
-    private _converter: Converter) { }
+    private _converter: Converter, private _authService: AuthService) { }
 
   ngOnInit(): void {
+    this._authService.home();
     this._restApiService.get('FlashNewsEntry/GetFlashNewsEntry').subscribe(res => {
       res.Table.forEach((i: any) => {
         this.breakingNews += i.g_newsdetailstamil + ' ,';

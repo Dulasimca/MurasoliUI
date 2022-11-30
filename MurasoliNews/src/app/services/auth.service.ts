@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<boolean>(false); 
+  private isVisited = new BehaviorSubject<boolean>(false); 
   /// To control if the user is logged in or not
   /// The BehaviorSubject keeps the latest value cached (in our case when the service is created the initial value is going to be false). 
   /// So when an Observer subscribes to the isLoggedIn(), the cached valued is going to be emitted right away.
@@ -15,17 +15,17 @@ export class AuthService {
   constructor(private _router: Router) { 
   }
 
-  get isLoggedIn() {
-    return this.loggedIn.asObservable(); // getter to expose only the get method publicly and as also expose the Subject as an Observable
+  get isVisitedHome() {
+    return this.isVisited.asObservable(); // getter to expose only the get method publicly and as also expose the Subject as an Observable
   }
 
-  login() {
-    this.loggedIn.next(true);
+  home() {
+    this.isVisited.next(true);
   }
 
 
-  public logout() {
-    this._router.navigate(['/login']);
-    this.loggedIn.next(false);
+  public default() {
+    this._router.navigate(['/']);
+    this.isVisited.next(false);
   }
 }
