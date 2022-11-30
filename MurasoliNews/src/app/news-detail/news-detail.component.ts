@@ -1,4 +1,6 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { DataSharingService } from '../services/data-sharing.service';
 
 @Component({
   selector: 'app-news-detail',
@@ -7,20 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsDetailComponent implements OnInit {
   headLine: string = '';
-  incidentDate: string = '';
-  list: any = [];
-  constructor() { }
+  incidentDate: any;
+  newsDetail: string = '';
+  list: any[] = [];
+  constructor(private _dataSharing: DataSharingService, private _datepipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.headLine = 'புழல் அருகே அடிப்படை வசதிகள் கேட்டு பெண்கள் சாலை மறியல்; போக்குவரத்து பாதிப்பு';
-    this.incidentDate = 'அக்டோபர் 3, 10:06 am';
-    this.list = [
-      'புழல் அருகே அடிப்படை வசதிகள் கேட்டு பெண்கள் சாலை மறியலில் ஈடுபட்டனர். இதனால் அந்த பகுதியில் போக்குவரத்து பாதிப்பு ஏற்பட்டது.',
-      'சென்னை மாநகராட்சி மாதவரம் மண்டலத்துக்கு உட்பட்ட 30-வது வார்டு விநாயகபுரத்தை அடுத்த திருமால் நகரில் 500-க்கும் மேற்பட்ட குடும்பத்தினர் வசித்து வருகின்றனர். இந்த நகரில் குடிநீர் வசதியும், கழிவுநீர் வெளியேற கால்வாய் வசதியும் இல்லாமல் பொதுமக்கள் அவதிப்பட்டு வருகின்றனர்.',
-      'தங்களுக்கு குடிநீர், கழிவுநீர் கால்வாய் உள்ளிட்ட அடிப்படை வசதிகளை செய்து தரக்கோரி மண்டல அதிகாரிகளிடம் பொதுமக்கள் தரப்பில் பலமுறை புகார் தெரிவித்தும் நடவடிக்கை எடுக்கவில்லை என கூறப்படுகிறது.',
-      'சாலை மறியல்',
-      'இதனால் ஆத்திரம் அடைந்த திருமால் நகரைச் சேர்ந்த திரளான பெண்கள் உள்பட நூற்றுக்கும் மேற்பட்ட பொதுமக்கள், நேற்று செங்குன்றம்-பெரம்பூர் சாலையில் விநாயகபுரம் அருகே திடீரென சாலையில் அமர்ந்து மறியலில் ஈடுபட்டனர். இதனால் அந்த பகுதியில் போக்குவரத்து பாதிக்கப்பட்டது. சாலையின் இருபுறமும் வாகனங்கள் நீண்ட வரிசையில் அணிவகுத்து நின்றன.',
-    ]
+    var data = this._dataSharing.getData();
+    this.headLine = data.headLine;
+    this.incidentDate = this._datepipe.transform(data.incidentDate, 'MMM,dd h:mm a');
+    this.newsDetail = data.newsDetail;
+    this.list = this.newsDetail.toString().split(',');
   }
 
 }

@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogModule } from 'primeng/dialog';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -20,6 +21,11 @@ import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { EPaperComponent } from './e-paper/e-paper.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { AuthService } from './services/auth.service';
+import { RestapiService } from './services/restapi.service';
+import { PaperReaderComponent } from './paper-reader/paper-reader.component';
+import { DataSharingService } from './services/data-sharing.service';
+import { Converter } from './helper/converter';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     DistrictNewsComponent,
     AboutComponent,
     ContactUsComponent,
-    EPaperComponent
+    EPaperComponent,
+    PaperReaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +51,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MenubarModule,
     DropdownModule,
     HttpClientModule,
-    PdfViewerModule
+    PdfViewerModule,
+    DialogModule
   ],
-  providers: [],
+  entryComponents: [],
+  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

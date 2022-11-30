@@ -7,10 +7,12 @@ import { EPaperComponent } from './e-paper/e-paper.component';
 import { HomeComponent } from './home/home.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { NewsComponent } from './news/news.component';
+import { PaperReaderComponent } from './paper-reader/paper-reader.component';
 
 const routes: Routes = [
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
+    { path: 'reader', component: PaperReaderComponent },
     { path: 'news', component: NewsComponent },
     { path: 'district-news', component: DistrictNewsComponent },
     { path: 'news-detail', component: NewsDetailComponent },

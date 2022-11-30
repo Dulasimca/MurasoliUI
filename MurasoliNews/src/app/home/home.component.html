@@ -4,13 +4,13 @@
         <div class="grid">
             <div #col1 class="col-12 md:col-3 lg:col-3 no-pad-lft bdr-vertical-light">
                 <div class="col-12 md:col-12 lg:col-12 no-pad-top no-pad-btm">
-                    <div class="col-12 no-pad" *ngFor="let i of firstColData" style="margin-bottom: -0.7rem;" (click)="onNavigate()">
+                    <div class="col-12 no-pad" *ngFor="let i of firstColData" style="margin-bottom: -0.7rem;" (click)="onNavigate(i)">
                         <div class="news-title">
                             <span> {{i.headLine}} </span>
                         </div>
                         <div class="grid">
                             <div class="col-7 no-pad-top news-content-small no-pad-rgt">
-                                <p>{{i.news}}</p>
+                                <p>{{i.newsShort}}</p>
                             </div>
                             <div class="col-5 no-pad-top no-pad-lft">
                                 <div class="txt-small">{{i.incidentDate}}</div>
@@ -22,7 +22,7 @@
             </div>
 
             <div #col2 class="col-12 md:col-6 lg:col-6 bdr-vertical-light">
-                <div *ngFor="let i of secondMainColData" (click)="onNavigate()">
+                <div *ngFor="let i of secondMainColData" (click)="onNavigate(i)">
                     <div class="txt-ctr">
                         <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
                     </div>
@@ -32,17 +32,17 @@
                         </div>
                         <div>
                             <div class="txt-small">{{i.incidentDate}}</div>
-                            <div class="news-content-small">{{i.news}}</div>
+                            <div class="news-content-small">{{i.newsShort}}</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 bdr-horizontal-light" *ngFor="let i of secondColData" (click)="onNavigate()">
+                <div class="col-12 bdr-horizontal-light" *ngFor="let i of secondColData" (click)="onNavigate(i)">
                     <div class="news-title">
                         <span> {{i.headLine}} </span>
                     </div>
                     <div class="grid">
                         <div class="col-7 no-pad-top news-content-small no-pad-rgt">
-                            <p>{{i.news}}</p>
+                            <p>{{i.newsShort}}</p>
                         </div>
                         <div class="col-5 no-pad-top no-pad-lft">
                             <div class="txt-small">{{i.incidentDate}}</div>
@@ -52,14 +52,14 @@
                 </div>
             </div>
             <div #col3 class="col-12 md:col-3 lg:col-3 no-pad-lft">
-                <div class="col-12 md:col-12 lg:col-12 no-pad-top no-pad-btm" (click)="onNavigate()">
-                    <div class="col-12 no-pad" *ngFor="let i of thridColData" style="margin-bottom: -0.7rem;">
+                <div class="col-12 md:col-12 lg:col-12 no-pad-top no-pad-btm">
+                    <div class="col-12 no-pad" *ngFor="let i of thridColData" style="margin-bottom: -0.7rem;"  (click)="onNavigate(i)">
                         <div class="news-title">
                             <span> {{i.headLine}} </span>
                         </div>
                         <div class="grid">
                             <div class="col-7 no-pad-top news-content-small no-pad-rgt">
-                                <p>{{i.news}}</p>
+                                <p>{{i.newsShort}}</p>
                             </div>
                             <div class="col-5 no-pad-top no-pad-lft">
                                 <div class="txt-small">{{i.incidentDate}}</div>
@@ -74,7 +74,7 @@
     <div #row2 class="col-12 md:col-12 lg:col-12 bdr-horizontal-light">
         <div class="col-12">
             <div class="grid">
-                <div *ngFor="let i of rowNewsData" class="col-12 md:col-3 lg:col-3 bdr-vertical-light" (click)="onNavigate()">
+                <div *ngFor="let i of bottomNewsData" class="col-12 md:col-3 lg:col-3 bdr-vertical-light" (click)="onNavigate(i)">
                     <div class="grid">
                         <div class="col-6 md:col-6 lg:col-6 news-title">
                             <span> {{i.headLine}} </span>
@@ -85,7 +85,7 @@
                     </div>
                     <div>
                         <div class="txt-small">{{i.incidentDate}}</div>
-                        <div class="news-content-small">{{i.news}}</div>
+                        <div class="news-content-small">{{i.newsShort}}</div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataSharingService } from '../services/data-sharing.service';
+import { RestapiService } from '../services/restapi.service';
 
 @Component({
   selector: 'app-home',
@@ -11,56 +14,55 @@ export class HomeComponent implements OnInit {
   secondColData: any = [];
   thridColData: any = [];
   secondMainColData: any = [];
-  rowNewsData: any = [];
+  bottomNewsData: any = [];
   breakingNews: string = '';
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _restApiService: RestapiService,
+    private _dataSharing: DataSharingService, private _datepipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.firstColData = [
-      { incidentDate: 'Sep 28, 10.00am', headLine: "ஐயான் சூறாவளி தாக்குதல்; கியூபாவில் அகதிகள் படகு கவிழ்ந்தது 20 பேர் மாயம்", 
-      news: "கியூபாவின் அகதிகள் சென்ற படகு ஐயான் சூறாவளியில் சிக்கியதில் 20 பேரை காணவில்லை. 3 பேர் மீட்கப்பட்டனர்." },
-      { incidentDate: 'Sep 28, 10.20am', headLine: "பிஎப்ஐ தலைவர்கள், உறுப்பினர்கள் மீது 1,400 வழக்குகள்",
-       news: "தடை செய்யப்பட்டு உள்ள பிஎப்ஐ மீது நாடு முழுவதும் 1400 க்கும் மேற்பட்ட இப்போது கிரிமினல் வழக்குகள் பதிவு செய்யப்பட்டு உள்ளன." },
-      { incidentDate: 'Sep 28, 10.25am', headLine: "தமிழகத்தில் பல இடங்களில் ஆர்.எஸ்.எஸ் ஊர்வலத்திற்கு போலீசார் அனுமதி மறுப்பு",
-       news: "தமிழ்நாடு முழுவதும் பல இடங்களில் அக். 2ம் தேதி நடக்க உள்ள ஆர்.எஸ்.எஸ். ஊர்வலத்திற்கு ,போலீசார் அனுமதிக்கு மறுப்பு தெரிவித்துள்ளார்." },
-      { incidentDate: 'Sep 28, 10.25am', headLine:"தொடர்ந்து 3-வது நாளாக 4 ஆயிரத்துக்கு கீழே கொரோனா பாதிப்பு",
-       news: "இந்தியாவில் தொடர்ந்து 3-வது நாளாக கொரோனா தினசரி பாதிப்பு 4 ஆயிரத்துக்கு கீழே பதிவானது." }
-    ];
-    this.secondColData = [
-      { incidentDate: 'Sep 28, 10.20am', headLine: "பிஎப்ஐ தலைவர்கள், உறுப்பினர்கள் மீது 1,400 வழக்குகள்",
-       news: "தடை செய்யப்பட்டு உள்ள பிஎப்ஐ மீது நாடு முழுவதும் 1400 க்கும் மேற்பட்ட இப்போது கிரிமினல் வழக்குகள் பதிவு செய்யப்பட்டு உள்ளன." },
-      { incidentDate: 'Sep 28, 10.25am', headLine: "தமிழகத்தில் பல இடங்களில் ஆர்.எஸ்.எஸ் ஊர்வலத்திற்கு போலீசார் அனுமதி மறுப்பு",
-       news: "தமிழ்நாடு முழுவதும் பல இடங்களில் அக். 2ம் தேதி நடக்க உள்ள ஆர்.எஸ்.எஸ். ஊர்வலத்திற்கு ,போலீசார் அனுமதிக்கு மறுப்பு தெரிவித்துள்ளார்." },
-    ];
-    this.secondMainColData = [
-      { incidentDate: 'Sep 28, 10.00am', headLine: "ஐயான் சூறாவளி தாக்குதல்; கியூபாவில் அகதிகள் படகு கவிழ்ந்தது 20 பேர் மாயம்", 
-      news: "கியூபாவின் அகதிகள் சென்ற படகு ஐயான் சூறாவளியில் சிக்கியதில் 20 பேரை காணவில்லை. 3 பேர் மீட்கப்பட்டனர்." },
-    ];
-    this.thridColData = [
-      { incidentDate: 'Sep 28, 10.00am', headLine: "ஐயான் சூறாவளி தாக்குதல்; கியூபாவில் அகதிகள் படகு கவிழ்ந்தது 20 பேர் மாயம்", 
-      news: "கியூபாவின் அகதிகள் சென்ற படகு ஐயான் சூறாவளியில் சிக்கியதில் 20 பேரை காணவில்லை. 3 பேர் மீட்கப்பட்டனர்." },
-      { incidentDate: 'Sep 28, 10.20am', headLine: "பிஎப்ஐ தலைவர்கள், உறுப்பினர்கள் மீது 1,400 வழக்குகள்",
-       news: "தடை செய்யப்பட்டு உள்ள பிஎப்ஐ மீது நாடு முழுவதும் 1400 க்கும் மேற்பட்ட இப்போது கிரிமினல் வழக்குகள் பதிவு செய்யப்பட்டு உள்ளன." },
-      { incidentDate: 'Sep 28, 10.25am', headLine: "தமிழகத்தில் பல இடங்களில் ஆர்.எஸ்.எஸ் ஊர்வலத்திற்கு போலீசார் அனுமதி மறுப்பு",
-       news: "தமிழ்நாடு முழுவதும் பல இடங்களில் அக். 2ம் தேதி நடக்க உள்ள ஆர்.எஸ்.எஸ். ஊர்வலத்திற்கு ,போலீசார் அனுமதிக்கு மறுப்பு தெரிவித்துள்ளார்." },
-      { incidentDate: 'Sep 28, 10.25am', headLine:"தொடர்ந்து 3-வது நாளாக 4 ஆயிரத்துக்கு கீழே கொரோனா பாதிப்பு",
-       news: "இந்தியாவில் தொடர்ந்து 3-வது நாளாக கொரோனா தினசரி பாதிப்பு 4 ஆயிரத்துக்கு கீழே பதிவானது." }
-    ];
-    this.rowNewsData = [
-      { incidentDate: 'Sep 28, 10.00am', headLine: "ஐயான் சூறாவளி தாக்குதல்; கியூபாவில் அகதிகள் படகு கவிழ்ந்தது 20 பேர் மாயம்", 
-      news: "கியூபாவின் அகதிகள் சென்ற படகு ஐயான் சூறாவளியில் சிக்கியதில் 20 பேரை காணவில்லை. 3 பேர் மீட்கப்பட்டனர்." },
-      { incidentDate: 'Sep 28, 10.20am', headLine: "பிஎப்ஐ தலைவர்கள், உறுப்பினர்கள் மீது 1,400 வழக்குகள்",
-       news: "தடை செய்யப்பட்டு உள்ள பிஎப்ஐ மீது நாடு முழுவதும் 1400 க்கும் மேற்பட்ட இப்போது கிரிமினல் வழக்குகள் பதிவு செய்யப்பட்டு உள்ளன." },
-      { incidentDate: 'Sep 28, 10.25am', headLine: "தமிழகத்தில் பல இடங்களில் ஆர்.எஸ்.எஸ் ஊர்வலத்திற்கு போலீசார் அனுமதி மறுப்பு",
-       news: "தமிழ்நாடு முழுவதும் பல இடங்களில் அக். 2ம் தேதி நடக்க உள்ள ஆர்.எஸ்.எஸ். ஊர்வலத்திற்கு ,போலீசார் அனுமதிக்கு மறுப்பு தெரிவித்துள்ளார்." },
-      { incidentDate: 'Sep 28, 10.25am', headLine:"தொடர்ந்து 3-வது நாளாக 4 ஆயிரத்துக்கு கீழே கொரோனா பாதிப்பு",
-       news: "இந்தியாவில் தொடர்ந்து 3-வது நாளாக கொரோனா தினசரி பாதிப்பு 4 ஆயிரத்துக்கு கீழே பதிவானது." }
-    ];
-    this.breakingNews = 'இந்தியாவில் தொடர்ந்து 3-வது நாளாக கொரோனா தினசரி பாதிப்பு 4 ஆயிரத்துக்கு கீழே பதிவானது. , தமிழகத்தில் பல இடங்களில் ஆர்.எஸ்.எஸ் ஊர்வலத்திற்கு போலீசார் அனுமதி மறுப்பு';
+    this._restApiService.get('FlashNewsEntry/GetFlashNewsEntry').subscribe(res => {
+      res.Table.forEach((i: any) => {
+        this.breakingNews += i.g_newsdetailstamil + ' ,';
+      });
+    });
+    this._restApiService.get('MainNewsEntry/GetMainNewsEntry').subscribe(res => {
+      var centerColData: any[] = [];
+      res.Table.forEach((data: any) => {
+        if (data.g_displayside === 0 && data.g_priority === 2) {
+          this.firstColData.push(
+            { incidentDate: this._datepipe.transform(data.g_incidentdate, 'MMM,dd h:mm a'), headLine: data.g_newstitletamil,
+             newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil }
+          );
+        } else if(data.g_displayside === 2 && data.g_priority === 2) {
+          centerColData.push(
+            { incidentDate: this._datepipe.transform(data.g_incidentdate, 'MMM,dd h:mm a'), headLine: data.g_newstitletamil,
+             newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil }
+          );
+        } else if(data.g_displayside === 1 && data.g_priority === 2) {
+          this.thridColData.push(
+            { incidentDate: this._datepipe.transform(data.g_incidentdate, 'MMM,dd h:mm a'), headLine: data.g_newstitletamil,
+             newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil }
+          );
+        } else if(data.g_displayside === 3 && data.g_priority === 2) {
+          this.bottomNewsData.push(
+            { incidentDate: this._datepipe.transform(data.g_incidentdate, 'MMM,dd h:mm a'), headLine: data.g_newstitletamil,
+             newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil }
+          );
+        }
+      })
+      centerColData.forEach((item: any, index: number) => {
+        if(index != 0) {
+          this.secondColData.push(item);
+        } else {
+          this.secondMainColData.push(item);
+        }
+      })
+    })
   }
 
-  onNavigate() {
+  onNavigate(data: any) {
+    this._dataSharing.setData(data);
     this._router.navigate(['/news-detail']);
   }
 
