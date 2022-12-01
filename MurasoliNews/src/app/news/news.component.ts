@@ -1,5 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { delay, of, tap } from 'rxjs';
+import { Converter } from '../helper/converter';
+import { NewsService } from '../services/news.service';
+import { RestapiService } from '../services/restapi.service';
 
 @Component({
   selector: 'app-news',
@@ -9,31 +14,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NewsComponent implements OnInit {
   title: string = '';
   newsList: any = [];
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router) { 
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
+    private _restApiService: RestapiService, private _datepipe: DatePipe,
+    private _converter: Converter, private _newsService: NewsService) { 
     this._activatedRoute.queryParams.subscribe(params => {
       this.title = (params['id'] === '1') ? 'மாநில செய்திகள்' : 'தேசிய செய்திகள்';
     });
   }
 
   ngOnInit(): void {
-   
-    this.newsList = [
-      {
-        headLine: 'மாவட்ட கல்வி அலுவலகம் முன்பு  ஆரம்பப்பள்ளி ஆசிரியர் கூட்டணியினர் ஆர்ப்பாட்டம்',
-        incidentDate: 'செப்டம்பர் 29, 2022, 8:03 pm',
-        news: 'தேனி தொழிலாளர் அலுவலகத்தில் பாதுகாப்பு உபகரணங்கள் கேட்டு ஊழியர்களிடம் தொழிலாளா்கள் வாக்குவாதத்தில் ஈடுபட்டனர்.'
-      },
-      {
-        headLine: 'கடலூர் மத்திய சிறையில் உள்ள சவுக்கு சங்கரை பார்வையாளர்கள் சந்திக்க ஒரு மாதத்திற்கு தடை',
-        incidentDate: 'செப்டம்பர் 29, 2022, 8:02 pm',
-        news: 'சவுக்கு சங்கரை சிறையில் பார்வையாளர்கள் சந்திக்க ஒரு மாதத்திற்கு கடலூர் மத்திய சிறை நிர்வாகம் தடை விதித்து உத்தரவிட்டுள்ளது'
-      },
-      {
-        headLine: 'பஸ் விபத்தில் காயம் அடைந்தவர்களுக்கு அமைச்சர் ஆறுதல்',
-        incidentDate: 'செப்டம்பர் 29, 2022, 8:10 pm',
-        news: 'பஸ் விபத்தில் காயம் அடைந்தவர்களுக்கு அமைச்சர் ஆறுதல்'
-      },
-    ]
+    this.loadNews();
+    // this._newsService.getUser().subscribe(res => {
+    //   console.log('res2', res)
+    // })
+  }
+
+  loadNews() {
+    this._restApiService.get('MainNewsEntry/GetMainNewsEntry').subscribe(res => {
+      if(res) {
+        res.Table.forEach((x: any) => {
+          var date = this._datepipe.transform(x.g_incidentdate, 'MMM,dd h:mm a');
+          const incidentDate = this._converter.convertMonth(date?.toString());
+          x.incidentDate = incidentDate;
+          this.newsList.push(x);
+        })
+      }
+    });
   }
 
   onNavigate() {

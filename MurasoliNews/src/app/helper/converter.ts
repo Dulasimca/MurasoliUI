@@ -27,7 +27,9 @@ export class Converter {
         return this.value;
     }
 
-    convertMonth(value: string): string {
+    convertMonth(date?: string): string {
+        var temp = date!.toString().split(',');
+        var value = temp[0].toString().toUpperCase();
         switch (value) {
             case 'JAN':
                 this.value = 'ஜனவரி';
@@ -66,6 +68,6 @@ export class Converter {
                 this.value = 'டிசம்பர்';
                 break;
         }
-        return this.value;
+        return date!.toString().replace(temp[0], this.value);
     }
 }

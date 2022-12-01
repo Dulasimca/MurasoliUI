@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   home() {
-    this.isVisited.next(true);
+    this.isVisited.next(true);  
   }
 
 

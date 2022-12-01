@@ -27,6 +27,7 @@ import { PaperReaderComponent } from './paper-reader/paper-reader.component';
 import { DataSharingService } from './services/data-sharing.service';
 import { Converter } from './helper/converter';
 import { AuthGuard } from './services/auth.guard';
+import { NewsService } from './services/news.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { AuthGuard } from './services/auth.guard';
     DialogModule
   ],
   entryComponents: [],
-  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard],
+  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
