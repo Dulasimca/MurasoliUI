@@ -10,6 +10,7 @@ export class EPaperComponent implements OnInit {
   src: any;
   districtOptions: SelectItem[] = [];
   district: any;
+  date: Date = new Date();
   constructor() { }
 
   ngOnInit(): void {

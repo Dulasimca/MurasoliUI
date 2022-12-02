@@ -7,7 +7,7 @@ body {
     margin: 0 !important;
     // background: #a00000 !important;
     background: #3c3939 !important;
-    font: normal 17px/26px Roboto,Arial,sans-serif;    // font-family: sans-serif !important;
+    font: normal 17px/26px Roboto, Arial, sans-serif; // font-family: sans-serif !important;
     overflow-x: hidden;
 }
 
@@ -28,55 +28,71 @@ p {
 .no-pad {
     padding: 0 !important;
 }
+
 .no-pad-top {
     padding-top: 0 !important;
 }
+
 .no-pad-lft {
     padding-left: 0 !important;
 }
+
 .no-pad-rgt {
     padding-right: 0 !important;
 }
+
 .no-pad-btm {
     padding-bottom: 0 !important;
 }
+
 .grid-center {
     display: flex;
     justify-content: center;
 }
+
 .box-shadow {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+
 .news-title {
     font-size: 15px;
     font-weight: 600;
 }
+
 .txt-small {
     font-size: 12px;
     white-space: pre;
     color: grey;
 }
+
 .news-content-smaller {
     font-weight: 400;
     font-size: 12.5px;
     line-height: 20px;
 }
+
 .news-content-small {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
 }
+
 .bar-dark {
-    background: black; height: 2px;
+    background: black;
+    height: 2px;
     margin-bottom: 5px;
 }
+
 .bar-light {
-    background: #c7c0c0; height: 1px;
+    background: #c7c0c0;
+    height: 1px;
     margin-bottom: 5px;
 }
+
 .bdr-vertical-light {
     border-right: 1px solid rgb(211, 211, 211);
 }
+
 .bdr-horizontal-light {
     border-top: 1px solid rgb(211, 211, 211);
 }
@@ -86,12 +102,14 @@ p {
     color: white;
     font-weight: 600;
 }
+
 .breaking-news-content {
     background: #333;
     color: white;
     font-size: 15px;
     font-weight: 500;
 }
+
 // ::-webkit-scrollbar {
 //     width: 2px;
 //   }
@@ -112,108 +130,140 @@ p {
     background: #b90909 !important;
     border: 2px solid #a70505 !important;
 }
+
 // .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
 //     border-bottom: 0.2px solid #540101 !important;
 // }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-menuitem-text {
     // color: #ddd9d9 !important;
     color: black !important;
     font-weight: 500 !important;
     font-size: 14px;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-submenu-icon {
     font-weight: 500 !important;
     color: black !important;
     // color: #ddd9d9 !important;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-menuitem-icon {
     font-weight: 500 !important;
     color: black !important;
     // color: #ddd9d9 !important;
 }
+
 .p-menubar .p-menubar-button {
     font-weight: 500 !important;
     color: black !important;
     // color: #ddd9d9 !important;
 }
+
 .p-menubar .p-menubar-button {
     width: 2.8rem !important;
     height: 2.8rem !important;
 }
+
 .p-menubar .p-menubar-root-list {
     // background: #333 !important;
     background: #b90909 !important;
 }
+
 .p-menubar .p-menubar-button:hover {
     font-weight: 500 !important;
     color: black !important;
     // color: #ddd9d9 !important;
     background: transparent !important;
 }
+
 .p-menubar .p-menubar-button:focus {
     box-shadow: 0 0 0 0.1rem #db0a0a !important;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {
+
+.p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link,
+.p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link:not(.p-disabled):hover {
     background: #d40505 !important;
     // background: #262626 !important;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link:not(.p-disabled):hover {
     background: #d40505 !important;
     // background: #262626 !important;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link:focus {
     box-shadow: inset 0 0 0 0.15rem #db0a0a !important;
 }
+
 .p-menubar .p-submenu-list {
     // background: #333 !important;
     background: #b90909 !important;
 }
+
 .p-menubar .p-menuitem-link .p-menuitem-text {
     font-weight: 500 !important;
     color: black !important;
     font-size: 14px;
     // color: #ddd9d9 !important;
 }
+
 .p-menubar .p-menuitem-link .p-menuitem-icon {
     font-weight: 500 !important;
     color: black !important;
     // color: #ddd9d9 !important;
 }
-.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {
+
+.p-menubar .p-menuitem.p-menuitem-active>.p-menuitem-link {
     background: #b90909 !important;
     // background: #333 !important;
 }
+
 .p-menubar .p-menuitem-link:not(.p-disabled):hover {
     background: #b90909 !important;
     // background: #333 !important;
 }
+
 .p-menubar .p-menuitem-link:focus {
     box-shadow: inset 0 0 0 0.15rem #db0a0a !important;
 }
+
 .p-menubar .p-menuitem-link {
     padding: 0.5rem !important;
 }
-.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link {
     border-radius: 0 !important;
     // border-right: 1px solid black !important;
 }
-.p-menubar-button > .pi  {
+
+.p-menubar-button>.pi {
     font-size: 1.5rem !important;
 }
+
 /// dropdown
 .p-dropdown .p-dropdown-label {
     padding: .25rem !important;
 }
+
 .p-dropdown:not(.p-disabled):hover {
     border-color: #b90909 !important;
 }
+
 .p-dropdown:not(.p-disabled).p-focus {
     border-color: #b90909 !important;
     box-shadow: 0 0 0 0.1rem #f85b5b !important;
 }
+
 .ng2-pdf-viewer-container {
     overflow-x: hidden !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

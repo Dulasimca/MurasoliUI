@@ -9,6 +9,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogModule } from 'primeng/dialog';
+import { CalendarModule } from 'primeng/calendar';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -54,7 +55,8 @@ import { NewsService } from './services/news.service';
     DropdownModule,
     HttpClientModule,
     PdfViewerModule,
-    DialogModule
+    DialogModule,
+    CalendarModule
   ],
   entryComponents: [],
   providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService],

@@ -1,7 +1,17 @@
 
 <div class="col-12 md:col-12 lg:col-12">
   <div class="col-12 no-pad-top">
+    <div class="col-12 md:col-4 lg:col-2">
+          <span class="p-float-label">
+              <p-calendar name="_judgementdate" [showIcon]="true"
+                  [(ngModel)]="date"></p-calendar>
+          </span>
+  </div>
+  <div class="col-12 md:col-4 lg:col-2">
+    <span class="p-float-label">
     <p-dropdown [options]="districtOptions" [(ngModel)]="district" placeholder="அனைத்து மாவட்டங்கள்" (onChange)="onSelectDistrict()"></p-dropdown>
+  </span>
+</div>
 </div>
     <div class="grid grid-center">
   <div class="col-12 md:col-10 lg:col-10 pdf-container">
