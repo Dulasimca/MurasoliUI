@@ -253,7 +253,11 @@ p {
     border-color: #b90909 !important;
     box-shadow: 0 0 0 0.1rem #f85b5b !important;
 }
-
+.p-button {
+    color: #000000 !important;
+    background: #b90909 !important;
+    border: 1px solid #383636 !important;
+}
 .ng2-pdf-viewer-container {
     overflow-x: hidden !important;
 }
