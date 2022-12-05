@@ -54,7 +54,7 @@ export class DistrictNewsComponent implements OnInit {
     console.log('dit', this.districts)
     if(this.districts) {
       this.districts.Table.forEach((d: any) => {
-        data.push({ label: d.g_districtname, value: d.g_districtid });
+        data.push({ label: d.g_districtnametamil, value: d.g_districtid, engLabel: d.g_districtnametamil });
       })
       this.districtOptions = data;
     }
