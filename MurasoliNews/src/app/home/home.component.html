@@ -1,5 +1,15 @@
 <div class="col-12 md:col-12 lg:col-12">
     <div class="bar-dark"></div>
+    <div class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+            <div class="col-4 md:col-2 lg:col-2 breaking-news">
+                <span>முக்கிய செய்திகள்</span>
+            </div>
+            <div class="col-8 md:col-10 lg:col-10 breaking-news-content">
+                <marquee>{{breakingNews}}</marquee>
+            </div>
+        </div>
+    </div>
     <div #row1 class="col-12 md:col-12 lg:col-12">
         <div class="grid">
             <div #col1 class="col-12 md:col-3 lg:col-3 no-pad-lft bdr-vertical-light">
@@ -14,7 +24,7 @@
                             </div>
                             <div class="col-5 no-pad-top no-pad-lft">
                                 <div class="txt-small">{{i.incidentDate}}</div>
-                                <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                                <img *ngIf="i.hasImg" [src]="i.imgURL" style="width: -webkit-fill-available !important;" />
                             </div>
                         </div>
                     </div>
@@ -24,7 +34,7 @@
             <div #col2 class="col-12 md:col-6 lg:col-6 bdr-vertical-light">
                 <div *ngFor="let i of secondMainColData" (click)="onNavigate(i)">
                     <div class="txt-ctr">
-                        <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                        <img *ngIf="i.hasImg" [src]="i.imgURL" style="width: -webkit-fill-available !important;" />
                     </div>
                     <div class="col-12 md:col-12 lg:col-12">
                         <div class="news-title">
@@ -46,7 +56,7 @@
                         </div>
                         <div class="col-4 no-pad-top no-pad-lft">
                             <div class="txt-small">{{i.incidentDate}}</div>
-                            <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                            <img *ngIf="i.hasImg" [src]="i.imgURL" style="width: -webkit-fill-available !important;" />
                         </div>
                     </div>
                 </div>
@@ -63,7 +73,7 @@
                             </div>
                             <div class="col-5 no-pad-top no-pad-lft">
                                 <div class="txt-small">{{i.incidentDate}}</div>
-                                <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                                <img *ngIf="i.hasImg" [src]="i.imgURL" style="width: -webkit-fill-available !important;" />
                             </div>
                         </div>
                     </div>
@@ -80,7 +90,7 @@
                             <span> {{i.headLine}} </span>
                         </div>
                         <div class="col-6 md:col-6 lg:col-6">
-                            <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                            <img *ngIf="i.hasImg" [src]="i.imgURL" style="width: -webkit-fill-available !important;" />
                         </div>
                     </div>
                     <div>
@@ -91,14 +101,5 @@
             </div>
         </div>
     </div>
-    <div class="col-12 md:col-12 lg:col-12">
-        <div class="grid">
-            <div class="col-4 md:col-2 lg:col-2 breaking-news">
-                <span>முக்கிய செய்திகள்</span>
-            </div>
-            <div class="col-8 md:col-10 lg:col-10 breaking-news-content">
-                <marquee>{{breakingNews}}</marquee>
-            </div>
-        </div>
-    </div>
+   
 </div>

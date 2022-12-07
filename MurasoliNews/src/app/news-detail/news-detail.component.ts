@@ -11,8 +11,10 @@ export class NewsDetailComponent implements OnInit {
   headLine: string = '';
   incidentDate: any;
   newsDetail: string = '';
+  imgSrc: any;
   list: any[] = [];
-  constructor(private _dataSharing: DataSharingService, private _datepipe: DatePipe) { }
+  hasImg: boolean = false;
+  constructor(private _dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
     var data = this._dataSharing.getData();
@@ -20,6 +22,9 @@ export class NewsDetailComponent implements OnInit {
     this.incidentDate = data.incidentDate;
     this.newsDetail = data.newsDetail;
     this.list = this.newsDetail.toString().split(',');
+    this.hasImg = (data.img && data.img !== '') ? true : false;
+    this.imgSrc = this._dataSharing.imgURL + data.img;
+    console.log('img', this.hasImg)
   }
 
 }

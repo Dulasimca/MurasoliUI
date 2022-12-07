@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
   })
   export class DataSharingService {
     data: any;
+    smallImgURL: string = 'http://172.16.80.21:84/assets/layout/thump/';
+    imgURL: string = 'http://172.16.80.21:84/assets/layout/Documents/';
 
     setData(data: any) {
         this.data = data;

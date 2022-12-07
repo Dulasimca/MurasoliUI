@@ -43,9 +43,9 @@ export class HomeComponent implements OnInit {
 
     this._restApiService.get('MainNewsEntry/GetMainNewsEntry').subscribe(res => {
       if (res) {
-        var centerColData: any[] = [];
+        // var centerColData: any[] = [];
         this._newsService.setNewsData(res.Table);
-        var setLeftCount = 0, setCenterCount = 0, setRightCount = 0, setBottomCount = 0;
+        var setLeftCount = 0, setSecondMainCount = 0, setCenterCount = 0, setRightCount = 0, setBottomCount = 0;
         res.Table.forEach((data: any) => {
           var date = this._datepipe.transform(data.g_incidentdate, 'MMM,dd h:mm a');
           const incidentDate = this._converter.convertMonth(date?.toString());
@@ -54,17 +54,32 @@ export class HomeComponent implements OnInit {
               this.firstColData.push(
                 {
                   incidentDate: incidentDate, headLine: data.g_newstitletamil,
-                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil
+                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
+                  img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false
                 }
               );
               setLeftCount++;
             }
           } else if (data.g_displayside === 2 && data.g_priority === 2) {
-            if (setCenterCount <= 3) {
-              centerColData.push(
+            if (setSecondMainCount < 1) {
+              this.secondMainColData.push(
                 {
                   incidentDate: incidentDate, headLine: data.g_newstitletamil,
-                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil
+                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
+                  img: data.g_image, imgURL: this._dataSharing.imgURL + data.g_image,
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false
+                }
+              );
+            }
+          } else if (data.g_displayside === 2 && data.g_priority === 1) {
+            if (setCenterCount <= 3) {
+              this.secondColData.push(
+                {
+                  incidentDate: incidentDate, headLine: data.g_newstitletamil,
+                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
+                  img: data.g_image, imgURL: this._dataSharing.imgURL + data.g_image,
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false
                 }
               );
               setCenterCount++;
@@ -74,7 +89,9 @@ export class HomeComponent implements OnInit {
               this.thridColData.push(
                 {
                   incidentDate: incidentDate, headLine: data.g_newstitletamil,
-                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil
+                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
+                  img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false
                 }
               );
               setRightCount++;
@@ -84,20 +101,23 @@ export class HomeComponent implements OnInit {
               this.bottomNewsData.push(
                 {
                   incidentDate: incidentDate, headLine: data.g_newstitletamil,
-                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil
+                  newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
+                  img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false
                 }
               );
               setBottomCount++;
             }
           }
         })
-        centerColData.forEach((item: any, index: number) => {
-          if (index != 0) {
-            this.secondColData.push(item);
-          } else {
-            this.secondMainColData.push(item);
-          }
-        })
+        // centerColData.forEach((item: any, index: number) => {
+        //   item.imgURL = this._dataSharing.smallImgURL + item.img;
+        //   if (index != 0) {
+        //     this.secondColData.push(item);
+        //   } else {
+        //     this.secondMainColData.push(item);
+        //   }
+        // })
       } else {
         console.log('error occurred');
       }

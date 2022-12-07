@@ -7,13 +7,13 @@
                     <h3>{{headLine}}</h3>
                 </span>
             </div>
-            <div class="col-12 bdr-horizontal-light"></div>
-            <div class="grid grid-center">
+            <div *ngIf="hasImg" class="col-12 bdr-horizontal-light"></div>
+            <div *ngIf="hasImg" class="grid grid-center">
                 <div class="col-8">
-                    <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                    <img [src]="imgSrc" style="width: -webkit-fill-available !important;" />
                 </div>
             </div>
-            <div class="bdr-horizontal-light"></div>
+            <div *ngIf="hasImg" class="bdr-horizontal-light"></div>
             <div class="txt-small">{{incidentDate}}</div>
             <div class="col-12 bdr-horizontal-light"></div>
             <div class="grid grid-center">
