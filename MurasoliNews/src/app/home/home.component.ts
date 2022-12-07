@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
               );
             }
           } else if (data.g_displayside === 2 && data.g_priority === 1) {
-            if (setCenterCount <= 3) {
+            if (setCenterCount < 3) {
               this.secondColData.push(
                 {
                   incidentDate: incidentDate, headLine: data.g_newstitletamil,
