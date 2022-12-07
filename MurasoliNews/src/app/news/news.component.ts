@@ -16,8 +16,8 @@ export class NewsComponent implements OnInit {
   title: string = '';
   newsList: any = [];
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
-    private _restApiService: RestapiService, private _datepipe: DatePipe,
-    private _converter: Converter, private _dataSharing: DataSharingService) { 
+    private _restApiService: RestapiService, private _dataSharing: DataSharingService,
+    private _newsService: NewsService) { 
     this._activatedRoute.queryParams.subscribe(params => {
       this.title = (params['id'] === '1') ? 'மாநில செய்திகள்' : 'தேசிய செய்திகள்';
     });
@@ -30,18 +30,14 @@ export class NewsComponent implements OnInit {
   loadNews() {
     this._restApiService.get('MainNewsEntry/GetMainNewsEntry').subscribe(res => {
       if(res) {
-        res.Table.forEach((x: any) => {
-          var date = this._datepipe.transform(x.g_incidentdate, 'MMM,dd h:mm a');
-          const incidentDate = this._converter.convertMonth(date?.toString());
-          x.incidentDate = incidentDate;
-          x.imgURL = this._dataSharing.smallImgURL + x.g_image;
-          x.hasImg = (x.g_image && x.g_image !== '') ? true : false;this.newsList.push(x);
-        })
+        var response = this._newsService.createObject(res.Table);
+        this.newsList = response;
       }
     });
   }
 
-  onNavigate() {
+  onNavigate(data: any) {
+    this._dataSharing.setData(data);
     this._router.navigate(['/news-detail']);
   }
 

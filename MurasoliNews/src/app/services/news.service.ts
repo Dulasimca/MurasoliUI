@@ -1,5 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Observable, share } from 'rxjs';
+import { Converter } from '../helper/converter';
+import { DataSharingService } from './data-sharing.service';
 import { RestapiService } from './restapi.service';
 
 @Injectable({
@@ -9,8 +12,10 @@ import { RestapiService } from './restapi.service';
     news: any[] = [];
     data!: Observable<any>;
     district?: any = [];
+    list: any = [];
 
-    constructor(private _restApiService: RestapiService) { }
+    constructor(private _restApiService: RestapiService, private _datepipe: DatePipe,
+      private _converter: Converter, private _dataSharing: DataSharingService) { }
 
     getDistrict(): any {
         this.district = [];
@@ -20,24 +25,27 @@ import { RestapiService } from './restapi.service';
         return this.district;
     }
 
-    getUser(): Observable<any> {
-        console.log('service data', this.data)
-        if (this.data === undefined) {
-            console.log('no data found')
-            console.log('calling....')
-            this.data = this._restApiService.get('MainNewsEntry/GetMainNewsEntry').pipe(share());
-            return this.data;
-        } else {
-            console.log('data exists') 
-          return this.data;
-        }
-      }
-
     setNewsData(data: any) {
         this.news = data;
     }
 
     getNewsData() {
         return this.news;
+    }
+
+    createObject(data: any): any {
+      data.forEach((x: any) => {
+        var date = this._datepipe.transform(x.g_incidentdate, 'MMM,dd h:mm a');
+        const incidentDate = this._converter.convertMonth(date?.toString());
+        x.incidentDate = incidentDate;
+        x.img = x.g_image;
+        x.imgURL = this._dataSharing.smallImgURL + x.g_image;
+        x.hasImg = (x.g_image && x.g_image !== '') ? true : false;
+        x.headLine = x.g_newstitletamil;
+        x.newsShort = x.g_newsshorttamil;
+        x.newsDetail = x.g_newsdetailstamil;
+        this.list.push(x);
+      })
+      return this.list;
     }
   }
