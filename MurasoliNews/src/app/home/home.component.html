@@ -1,6 +1,6 @@
 <div class="col-12 md:col-12 lg:col-12">
     <div class="bar-dark"></div>
-    <div class="col-12 md:col-12 lg:col-12">
+    <div class="col-12 md:col-12 lg:col-12 no-pad-btm">
         <div class="grid">
             <div class="col-4 md:col-2 lg:col-2 breaking-news">
                 <span>முக்கிய செய்திகள்</span>
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div #row1 class="col-12 md:col-12 lg:col-12">
+    <div #row1 class="col-12 md:col-12 lg:col-12 no-pad-btm">
         <div class="grid">
             <div #col1 class="col-12 md:col-3 lg:col-3 no-pad-lft bdr-vertical-light">
                 <div class="col-12 md:col-12 lg:col-12 no-pad-top no-pad-btm">
@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-    <div #row2 class="col-12 md:col-12 lg:col-12 bdr-horizontal-light">
+    <div #row2 class="col-12 md:col-12 lg:col-12 bdr-horizontal-light no-pad-btm">
         <div class="col-12">
             <div class="grid">
                 <div *ngFor="let i of bottomNewsData" class="col-12 md:col-3 lg:col-3 bdr-vertical-light" (click)="onNavigate(i)">

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { Converter } from '../helper/converter';
+import { DataSharingService } from '../services/data-sharing.service';
 import { NewsService } from '../services/news.service';
 import { RestapiService } from '../services/restapi.service';
 
@@ -19,7 +20,8 @@ export class DistrictNewsComponent implements OnInit {
   district: any;
   districts?: any = [];
   constructor(private _router: Router, private _restApiService: RestapiService,
-    private _datepipe: DatePipe, private _converter: Converter, private _newsService: NewsService) { }
+    private _datepipe: DatePipe, private _converter: Converter, private _newsService: NewsService,
+    private _dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
     this.loadNews();
@@ -33,6 +35,8 @@ export class DistrictNewsComponent implements OnInit {
           var date = this._datepipe.transform(x.g_incidentdate, 'MMM,dd h:mm a');
           const incidentDate = this._converter.convertMonth(date?.toString());
           x.incidentDate = incidentDate;
+          x.imgURL = this._dataSharing.smallImgURL + x.g_image;
+          x.hasImg = (x.g_image && x.g_image !== '') ? true : false;
           this.newsDetails.push(x);
           this.newsAllData = this.newsDetails.slice(0);
         })
