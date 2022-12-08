@@ -21,9 +21,14 @@
                     </div>
                     <div class="col-6 no-pad">
                         <span>
-                            <i class="pi pi-fw pi-facebook" style="font-size: 1.28rem;color: #000000de;" (click)="share()"></i>
-                            <i class="pi pi-fw pi-twitter" style="font-size: 1.28rem;color: #000000de;"></i>
-                            <i class="pi pi-fw pi-envelope" style="font-size: 1.28rem;color: #000000de;"></i>
+                            <i class="pi pi-fw pi-facebook" style="font-size: 1.28rem;color: #365899;" (click)="share('fb')"></i>
+                            <i class="pi pi-fw pi-twitter" style="font-size: 1.28rem;color: #1d9bf0;" (click)="share('tw')"></i>
+                            <a #mail [href]="href" (click)="share('ma')">
+                                <i class="pi pi-fw pi-envelope" style="font-size: 1.28rem;color: #ec2a2ade;">
+                                </i>
+                            </a>
+                            <i class="pi pi-fw pi-whatsapp" style="font-size: 1.28rem;color: #449e48;" (click)="share('wa')"></i>
+                            <i class="pi pi-fw pi-send" style="font-size: 1.28rem;color: #1a8ad5;" (click)="share('tg')"></i>
                         </span>
                     </div>
                 </div>

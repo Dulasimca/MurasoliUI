@@ -14,8 +14,9 @@ export class NewsDetailComponent implements OnInit {
   imgSrc: any;
   list: any[] = [];
   hasImg: boolean = false;
-  paperTitle: string = ''; 
-  sampleimg: any;
+  paperTitle: string = '';
+  navUrl: string = '';
+  href: string = '';
   constructor(private _dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
@@ -29,8 +30,38 @@ export class NewsDetailComponent implements OnInit {
     this.imgSrc = this._dataSharing.imgURL + data.img;
   }
 
-  share() {
-    console.log( window.location.href);
+  share(type: string) {
+    let searchParams = new URLSearchParams();
+    const shareUrl = window.location.href;
+    let returnValue = null;
+    switch (type) {
+      case 'fb':
+        searchParams.set('u', shareUrl);
+        this.navUrl = this._dataSharing.facebookShareUrl + searchParams;
+        returnValue = window.open(this.navUrl, "_blank");
+        break;
+      case 'tw':
+        searchParams.set('url', shareUrl);
+        this.navUrl = this._dataSharing.twitterShareUrl + searchParams;
+        returnValue = window.open(this.navUrl, "_blank");
+        break;
+      case 'tg':
+        searchParams.set('url', shareUrl);
+        this.navUrl = this._dataSharing.telegramShareUrl + searchParams;
+        returnValue = window.open(this.navUrl, "_blank");
+        break;
+      case 'wa':
+        searchParams.set('url', shareUrl);
+        this.navUrl = this._dataSharing.whatsappShareUrl + searchParams;
+        returnValue = window.open(this.navUrl, "_blank");
+        break;
+      case 'ma':
+        this.href = 'mailto:?subject=Me&body=Check out this site ' + shareUrl;
+        console.log('href', this.href)
+        returnValue = null;
+        break;
+    }
+    return returnValue;
   }
 
 
