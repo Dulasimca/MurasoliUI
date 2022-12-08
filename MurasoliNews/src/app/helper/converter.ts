@@ -34,7 +34,6 @@ export class Converter {
         } else {
             temp = date!.toString().split(' ');
         }
-        console.log('tem', temp)
         var value = temp[0].toString().toUpperCase();
         switch (value) {
             case 'JAN':

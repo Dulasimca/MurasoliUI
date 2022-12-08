@@ -56,8 +56,7 @@ export class NewsDetailComponent implements OnInit {
         returnValue = window.open(this.navUrl, "_blank");
         break;
       case 'ma':
-        this.href = 'mailto:?subject=Me&body=Check out this site ' + shareUrl;
-        console.log('href', this.href)
+        this.href = 'mailto:?subject=' + this.headLine + '&body=Check out this site ' + shareUrl;
         returnValue = null;
         break;
     }
