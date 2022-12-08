@@ -40,8 +40,8 @@ import { RestapiService } from './restapi.service';
 
     createObject(data: any): any {
       data.forEach((x: any) => {
-        var date = this._datepipe.transform(x.g_incidentdate, 'MMM,dd h:mm a');
-        const incidentDate = this._converter.convertMonth(date?.toString());
+        var date = this._datepipe.transform(x.g_incidentdate, 'MMM dd,yyyy h:mm a');
+        const incidentDate = this._converter.convertMonth(2, date?.toString());
         x.incidentDate = incidentDate;
         x.img = x.g_image;
         x.imgURL = this._dataSharing.smallImgURL + x.g_image;

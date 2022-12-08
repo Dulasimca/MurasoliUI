@@ -27,8 +27,15 @@ export class Converter {
         return this.value;
     }
 
-    convertMonth(date?: string): string {
-        var temp = date!.toString().split(',');
+    convertMonth(type: number, date?: string): string {
+        console.log('cvtr', date)
+        var temp;
+        if (type == 1) {
+            temp = date!.toString().split(',');
+        } else {
+            temp = date!.toString().split(' ');
+        }
+        console.log('tem', temp)
         var value = temp[0].toString().toUpperCase();
         switch (value) {
             case 'JAN':

@@ -45,12 +45,14 @@ export class HomeComponent implements OnInit {
         var setLeftCount = 0, setSecondMainCount = 0, setCenterCount = 0, setRightCount = 0, setBottomCount = 0;
         res.Table.forEach((data: any) => {
           var date = this._datepipe.transform(data.g_incidentdate, 'MMM,dd h:mm a');
-          const incidentDate = this._converter.convertMonth(date?.toString());
+          var fullDate = this._datepipe.transform(data.g_incidentdate, 'MMM dd,yyyy h:mm a');
+          const incidentShortDate = this._converter.convertMonth(1, date?.toString());
+          const incidentDate = this._converter.convertMonth(2, fullDate?.toString());
           if (data.g_displayside === 0 && data.g_priority === 2) {
             if (setLeftCount < 4) {
               this.firstColData.push(
                 {
-                  incidentDate: incidentDate, headLine: data.g_newstitletamil,
+                  incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
                   hasImg: (data.g_image && data.g_image !== '') ? true : false
@@ -62,7 +64,7 @@ export class HomeComponent implements OnInit {
             if (setSecondMainCount < 1) {
               this.secondMainColData.push(
                 {
-                  incidentDate: incidentDate, headLine: data.g_newstitletamil,
+                  incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.imgURL + data.g_image,
                   hasImg: (data.g_image && data.g_image !== '') ? true : false
@@ -73,7 +75,7 @@ export class HomeComponent implements OnInit {
             if (setCenterCount < 3) {
               this.secondColData.push(
                 {
-                  incidentDate: incidentDate, headLine: data.g_newstitletamil,
+                  incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.imgURL + data.g_image,
                   hasImg: (data.g_image && data.g_image !== '') ? true : false
@@ -85,7 +87,7 @@ export class HomeComponent implements OnInit {
             if (setRightCount < 4) {
               this.thridColData.push(
                 {
-                  incidentDate: incidentDate, headLine: data.g_newstitletamil,
+                  incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
                   hasImg: (data.g_image && data.g_image !== '') ? true : false
@@ -97,7 +99,7 @@ export class HomeComponent implements OnInit {
             if (setBottomCount < 4) {
               this.bottomNewsData.push(
                 {
-                  incidentDate: incidentDate, headLine: data.g_newstitletamil,
+                  incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
                   hasImg: (data.g_image && data.g_image !== '') ? true : false
