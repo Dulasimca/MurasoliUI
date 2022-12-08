@@ -56,7 +56,7 @@ import { NewsService } from './services/news.service';
     HttpClientModule,
     PdfViewerModule,
     DialogModule,
-    CalendarModule
+    CalendarModule,
   ],
   entryComponents: [],
   providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService],

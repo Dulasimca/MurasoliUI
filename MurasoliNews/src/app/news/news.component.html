@@ -6,16 +6,16 @@
         </div>
         <div class="col-12 bdr-horizontal-light">
             <div class="col-12">
-                <div class="grid grid-center" *ngFor="let i of newsList" (click)="onNavigate(i)">
+                <div class="grid grid-center cursor" *ngFor="let i of newsList" (click)="onNavigate(i)">
                     <div class="col-6 md:col-9 lg:col-9">
                         <div class="news-title"> <span> {{i.headLine}} </span> </div>
                         <div class="news-content-small no-pad-rgt">
                             <p>{{i.newsShort}}</p>
+                            <div class="txt-small">{{i.incidentDate}}</div>
                         </div>
                     </div>
                     <div class="col-6 md:col-2 lg:col-2 no-pad-top no-pad-lft">
                         <img *ngIf="i.hasImg" [src]="i.imgURL" style="width: -webkit-fill-available !important;" />
-                        <div class="txt-small">{{i.incidentDate}}</div>
                     </div>
                     <div class="col-12 bdr-horizontal-light"></div>
                 </div>

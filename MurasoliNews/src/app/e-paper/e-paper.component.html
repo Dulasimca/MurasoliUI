@@ -1,17 +1,15 @@
 <div class="col-12 md:col-12 lg:col-12">
   <!-- <div class="bar-dark"></div> -->
-  <div class="col-12 no-pad-top">
-    <div class="grid">
+  <div class="col-12 no-pad">
+    <div class="grid grid-center">
       <div class="col-12 md:col-4 lg:col-2">
         <span class="p-float-label">
           <p-calendar name="_judgementdate" [showIcon]="true" [(ngModel)]="date"></p-calendar>
         </span>
       </div>
       <div class="col-12 md:col-4 lg:col-2">
-        <span class="p-float-label">
           <p-dropdown [options]="districtOptions" [(ngModel)]="district" placeholder="அனைத்து மாவட்டங்கள்"
-            (onChange)="onSelectDistrict()"></p-dropdown>
-        </span>
+          [autoDisplayFirst]="false" (onChange)="onSelectDistrict()"></p-dropdown>
       </div>
     </div>
   </div>
@@ -20,7 +18,8 @@
     <div class="col-12 md:col-10 lg:col-10 pdf-container">
       <pdf-viewer [src]="src" [rotation]="0" [original-size]="false" [show-all]="true" [fit-to-page]="false" [zoom]="1"
         [zoom-scale]="'page-width'" [stick-to-page]="false" [render-text]="true" [external-link-target]="'blank'"
-        [autoresize]="true" [show-borders]="false" style="width: 100%; height: 600px;"></pdf-viewer>
+        [render-text-mode]="1" [autoresize]="true" [show-borders]="false" style="width: 100%; height: 600px;"></pdf-viewer>
+        <!-- <ngx-extended-pdf-viewer [src]="src"></ngx-extended-pdf-viewer> -->
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="col-12 md:col-12 lg:col-12">
+<div #capture id="capture" class="col-12 md:col-12 lg:col-12">
     <div class="bar-dark"></div>
     <div class="grid grid-center">
         <div #rows class="col-12 md:col-12 lg:col-12 no-pad-top">
@@ -13,14 +13,30 @@
                     <img [src]="imgSrc" style="width: -webkit-fill-available !important;" />
                 </div>
             </div>
-            <div *ngIf="hasImg" class="bdr-horizontal-light"></div>
-            <div class="txt-small">{{incidentDate}}</div>
+            <div *ngIf="hasImg" class="col-12 bdr-horizontal-light"></div>
+            <div class="col-12 no-pad-top no-pad-btm txt-small" style="text-align: start;">
+                <div class="grid">
+                    <div class="col-6 no-pad">
+                       <span style="color: #2e2a2ade;font-size: 13px;"><b>{{paperTitle}}</b></span> | {{incidentDate}}
+                    </div>
+                    <div class="col-6 no-pad">
+                        <span>
+                            <i class="pi pi-fw pi-facebook" style="font-size: 1.28rem;color: #000000de;" (click)="share()"></i>
+                            <i class="pi pi-fw pi-twitter" style="font-size: 1.28rem;color: #000000de;"></i>
+                            <i class="pi pi-fw pi-envelope" style="font-size: 1.28rem;color: #000000de;"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 bdr-horizontal-light"></div>
             <div class="grid grid-center">
                 <div class="col-10 news-content-small no-pad" *ngFor="let i of list">
                     <!--  -->
                     <p style="text-align: left;">{{i}}</p>
                 </div>
+            </div>
+            <div>
+                <img [src]=""/>
             </div>
         </div>
     </div>

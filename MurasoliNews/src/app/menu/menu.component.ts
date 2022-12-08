@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
         label: 'முகப்பு', icon: 'pi pi-fw pi-home', routerLink: '/home'
       },
       {
-        label: 'செய்திகள்', icon: 'pi pi-fw pi-volume-up', 
+        label: 'செய்திகள்', icon: 'pi pi-fw pi-globe', 
         items: [
           { label: 'மாநில செய்திகள்', routerLink: '/news', queryParams: { 'id': 1 } },
           { label: 'தேசிய செய்திகள்', routerLink: '/news', queryParams: { 'id': 2 } },

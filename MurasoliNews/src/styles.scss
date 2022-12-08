@@ -25,6 +25,10 @@ a {
     text-decoration: none !important;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 .txt-ctr {
     text-align: center !important;
 }
@@ -61,6 +65,7 @@ a {
 .news-title {
     font-size: 15px;
     font-weight: 600;
+    overflow-wrap: break-word;
 }
 
 .txt-small {
@@ -127,6 +132,8 @@ a {
 //   }
 
 /// ------------ primeng styles ------------------
+/// 
+
 ///menu
 .p-menubar {
     padding: 0 !important;
@@ -148,12 +155,14 @@ a {
 .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-submenu-icon {
     font-weight: 500 !important;
     color: black !important;
+    margin-right: 0.25rem !important;
     // color: #ddd9d9 !important;
 }
 
 .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-menuitem-icon {
     font-weight: 500 !important;
     color: black !important;
+    margin-right: 0.25rem !important;
     // color: #ddd9d9 !important;
 }
 
@@ -186,12 +195,14 @@ a {
 
 .p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link,
 .p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link:not(.p-disabled):hover {
-    background: #d40505 !important;
+    background: #eb0000 !important;
+    // background: #d40505 !important;
     // background: #262626 !important;
 }
 
 .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link:not(.p-disabled):hover {
-    background: #d40505 !important;
+    background: #eb0000 !important;
+    // background: #d40505 !important;
     // background: #262626 !important;
 }
 
@@ -218,13 +229,21 @@ a {
 }
 
 .p-menubar .p-menuitem.p-menuitem-active>.p-menuitem-link {
-    background: #b90909 !important;
+    // background: #b90909 !important;
     // background: #333 !important;
+    background: #eb0000 !important;
+    border: 1px solid #b90909 !important; 
 }
 
 .p-menubar .p-menuitem-link:not(.p-disabled):hover {
-    background: #b90909 !important;
+    // background: #b90909 !important;
     // background: #333 !important;
+    background: #eb0000 !important;
+    border: 1px solid #b90909 !important; 
+}
+.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {
+    // background: #b90909 !important;
+    background: #eb0000 !important;
 }
 
 .p-menubar .p-menuitem-link:focus {
@@ -257,6 +276,29 @@ a {
     border-color: #b90909 !important;
     box-shadow: 0 0 0 0.1rem #f85b5b !important;
 }
+.p-inputtext:enabled:focus {
+    box-shadow: 0 0 0 .15rem #f85b5b !important;
+    border-color: #b90909 !important;
+    // border: 2px solid #18A558 !important;
+}
+.p-inputtext:enabled:hover {
+    border-color: #b90909 !important;
+}
+.p-datepicker .p-datepicker-header .p-datepicker-prev:focus, .p-datepicker .p-datepicker-header .p-datepicker-next:focus {
+    box-shadow: 0 0 0 0.2rem #f85b5b !important;
+}
+.p-datepicker table td > span:focus {
+    box-shadow: 0 0 0 0.2rem #f85b5b !important;
+}
+.p-datepicker table td.p-datepicker-today > span {
+    font-weight: 500 !important;
+    background: #b90909 !important;
+    color: #1e1e20 !important;
+    font-size: 18px !important;
+}
+.p-datepicker table td > span.p-highlight {
+    background: #ffcece !important;
+}
 .p-button {
     color: #000000 !important;
     background: #b90909 !important;
@@ -264,6 +306,12 @@ a {
 }
 .ng2-pdf-viewer-container {
     overflow-x: hidden !important;
+}
+.p-datepicker table td {
+    padding: 0.05rem !important;
+}
+.p-datepicker .p-datepicker-header {
+    padding: 0 !important;
 }
 
 html,

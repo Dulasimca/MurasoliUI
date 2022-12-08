@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from '../services/data-sharing.service';
 
@@ -14,9 +13,12 @@ export class NewsDetailComponent implements OnInit {
   imgSrc: any;
   list: any[] = [];
   hasImg: boolean = false;
+  paperTitle: string = ''; 
+  sampleimg: any;
   constructor(private _dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
+    this.paperTitle = this._dataSharing.paperName;
     var data = this._dataSharing.getData();
     this.headLine = data.headLine;
     this.incidentDate = data.incidentDate;
@@ -24,7 +26,11 @@ export class NewsDetailComponent implements OnInit {
     this.list = this.newsDetail.toString().split(',');
     this.hasImg = (data.img && data.img !== '') ? true : false;
     this.imgSrc = this._dataSharing.imgURL + data.img;
-    console.log('img', this.hasImg)
   }
+
+  share() {
+    console.log( window.location.href);
+  }
+
 
 }
