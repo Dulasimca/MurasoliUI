@@ -2,7 +2,6 @@ import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay, of, tap } from 'rxjs';
 import { Converter } from '../helper/converter';
 import { AuthService } from '../services/auth.service';
 import { DataSharingService } from '../services/data-sharing.service';
@@ -27,11 +26,9 @@ export class HomeComponent implements OnInit {
     private _converter: Converter, private _authService: AuthService, private _newsService: NewsService) { }
 
   ngOnInit(): void {
-    // this._newsService.getUser().subscribe(res => {
-    //   console.log('res', res)
-    // })
     this._authService.home();
     this.loadContent();
+    this._dataSharing.removeNewsData();
   }
 
   loadContent() {
@@ -127,7 +124,7 @@ export class HomeComponent implements OnInit {
   }
 
   onNavigate(data: any) {
-    this._dataSharing.setData(data);
+    this._dataSharing.setNewsData(data);
     this._router.navigate(['/news-detail']);
   }
 

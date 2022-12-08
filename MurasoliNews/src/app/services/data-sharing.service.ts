@@ -4,17 +4,20 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
   })
   export class DataSharingService {
-    data: any;
     smallImgURL: string = 'http://172.16.80.21:84/assets/layout/thump/';
     imgURL: string = 'http://172.16.80.21:84/assets/layout/Documents/';
     paperName: string = 'முரசொலி';
 
-    setData(data: any) {
-        this.data = data;
+    setNewsData(data: any) {
+      localStorage.setItem('NEWS-DETAIL', JSON.stringify(data));
     }
 
-    getData() {
-        return this.data;
+    getNewsData() {
+        return JSON.parse(localStorage.getItem('NEWS-DETAIL') as any);
+    }
+
+    removeNewsData() {
+      localStorage.removeItem('NEWS-DETAIL');
     }
   }
   

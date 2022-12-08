@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from '../services/data-sharing.service';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-news-detail',
@@ -19,7 +20,7 @@ export class NewsDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.paperTitle = this._dataSharing.paperName;
-    var data = this._dataSharing.getData();
+    var data = this._dataSharing.getNewsData();
     this.headLine = data.headLine;
     this.incidentDate = data.incidentDate;
     this.newsDetail = data.newsDetail;

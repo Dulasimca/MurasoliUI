@@ -25,6 +25,7 @@ export class DistrictNewsComponent implements OnInit {
   ngOnInit(): void {
     this.loadNews();
     this._newsService.getDistrict();
+    this._dataSharing.removeNewsData();
   }
 
   loadNews() {
@@ -57,7 +58,7 @@ export class DistrictNewsComponent implements OnInit {
   }
 
   onNavigate(data: any) {
-    this._dataSharing.setData(data);
+    this._dataSharing.setNewsData(data);
     this._router.navigate(['/news-detail']);
   }
 

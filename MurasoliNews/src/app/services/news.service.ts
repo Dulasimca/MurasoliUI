@@ -27,7 +27,12 @@ import { RestapiService } from './restapi.service';
 
     setNewsData(data: any) {
         this.news = data;
+        // localStorage.setItem('NEWS', JSON.stringify(data));
     }
+
+    // getSessionNews() {
+    //   return JSON.parse(localStorage.getItem('NEWS') as any);
+    // }
 
     getNewsData() {
         return this.news;
