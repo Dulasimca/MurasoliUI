@@ -28,7 +28,6 @@ export class Converter {
     }
 
     convertMonth(type: number, date?: string): string {
-        console.log('cvtr', date)
         var temp;
         if (type == 1) {
             temp = date!.toString().split(',');
