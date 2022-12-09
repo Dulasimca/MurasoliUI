@@ -25,7 +25,7 @@ export class NewsDetailComponent implements OnInit {
     this.headLine = data.headLine;
     this.incidentDate = data.incidentDate;
     this.newsDetail = data.newsDetail;
-    this.list = this.newsDetail.toString().split(',');
+    this.list = (this.newsDetail) ? this.newsDetail.toString().split(',') : [];
     this.hasImg = (data.img && data.img !== '') ? true : false;
     this.imgSrc = this._dataSharing.imgURL + data.img;
   }

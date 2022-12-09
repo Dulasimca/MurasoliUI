@@ -3,6 +3,11 @@
 @import url("../node_modules/primeng/resources/themes/saga-green/theme.css");
 @import url("../node_modules/primeng/resources/primeng.min.css");
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0 !important;
     // background: #a00000 !important;
@@ -314,12 +319,16 @@ a {
     padding: 0 !important;
 }
 
-html,
-body {
-    height: 100%;
+ngx-extended-pdf-viewer #toolbarViewer {
+    min-height: 32px;
+    background: #1f1e1e !important;
 }
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+ngx-extended-pdf-viewer .html .toolbar *, ngx-extended-pdf-viewer .html .treeItem * {
+    color: #d5d5d6;
+}
+ngx-extended-pdf-viewer .html .toolbarField.pageNumber {
+    color:#000000 !important;
+}
+ngx-extended-pdf-viewer select {
+    color:#000000 !important;
 }

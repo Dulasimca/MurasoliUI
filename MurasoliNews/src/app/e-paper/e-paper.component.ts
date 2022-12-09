@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
+import { NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-e-paper',
@@ -11,7 +12,10 @@ export class EPaperComponent implements OnInit {
   districtOptions: SelectItem[] = [];
   district: any;
   date: Date = new Date();
-  constructor() { }
+  constructor() { 
+    pdfDefaultOptions.doubleTapZoomFactor = '150%'; // The default value is '200%'
+    pdfDefaultOptions.maxCanvasPixels = 4096 * 4096 * 5;
+  }
 
   ngOnInit(): void {
     this.src = 'assets/files/murasoliE-paper.pdf';

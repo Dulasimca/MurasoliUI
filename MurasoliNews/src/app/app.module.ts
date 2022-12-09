@@ -29,6 +29,7 @@ import { DataSharingService } from './services/data-sharing.service';
 import { Converter } from './helper/converter';
 import { AuthGuard } from './services/auth.guard';
 import { NewsService } from './services/news.service';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { NewsService } from './services/news.service';
     PdfViewerModule,
     DialogModule,
     CalendarModule,
+    NgxExtendedPdfViewerModule
   ],
   entryComponents: [],
   providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService],
