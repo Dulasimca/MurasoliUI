@@ -309,6 +309,11 @@ a {
     background: #b90909 !important;
     border: 1px solid #383636 !important;
 }
+.p-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #f85b5b !important;
+}
 .ng2-pdf-viewer-container {
     overflow-x: hidden !important;
 }
@@ -319,6 +324,16 @@ a {
     padding: 0 !important;
 }
 
+.p-speeddial-button.p-button.p-button-icon-only .p-button-icon {
+    font-size: 1rem !important;
+}
+.p-speeddial-button.p-button.p-button-icon-only {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+}
+.p-speeddial-list {
+    margin: 0.5rem 0 !important;
+}
 ngx-extended-pdf-viewer #toolbarViewer {
     min-height: 32px;
     background: #1f1e1e !important;
@@ -332,3 +347,4 @@ ngx-extended-pdf-viewer .html .toolbarField.pageNumber {
 ngx-extended-pdf-viewer select {
     color:#000000 !important;
 }
+

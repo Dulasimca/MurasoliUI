@@ -31,34 +31,13 @@ export class NewsDetailComponent implements OnInit {
   }
 
   share(type: string) {
-    let searchParams = new URLSearchParams();
     const shareUrl = window.location.href;
     let returnValue = null;
-    switch (type) {
-      case 'fb':
-        searchParams.set('u', shareUrl);
-        this.navUrl = this._dataSharing.facebookShareUrl + searchParams;
-        returnValue = window.open(this.navUrl, "_blank");
-        break;
-      case 'tw':
-        searchParams.set('url', shareUrl);
-        this.navUrl = this._dataSharing.twitterShareUrl + searchParams;
-        returnValue = window.open(this.navUrl, "_blank");
-        break;
-      case 'tg':
-        searchParams.set('url', shareUrl);
-        this.navUrl = this._dataSharing.telegramShareUrl + searchParams;
-        returnValue = window.open(this.navUrl, "_blank");
-        break;
-      case 'wa':
-        searchParams.set('url', shareUrl);
-        this.navUrl = this._dataSharing.whatsappShareUrl + searchParams;
-        returnValue = window.open(this.navUrl, "_blank");
-        break;
-      case 'ma':
-        this.href = 'mailto:?subject=' + this.headLine + '&body=Check out this site ' + shareUrl;
-        returnValue = null;
-        break;
+    if (type === '_MA') {
+      this.href = 'mailto:?subject=' + this.headLine + '&body=Check out this ' + shareUrl;
+      returnValue = null;
+    } else {
+      returnValue = this._dataSharing.shareNews(type, shareUrl);
     }
     return returnValue;
   }

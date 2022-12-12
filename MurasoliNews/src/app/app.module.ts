@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogModule } from 'primeng/dialog';
 import { CalendarModule } from 'primeng/calendar';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -30,6 +31,7 @@ import { Converter } from './helper/converter';
 import { AuthGuard } from './services/auth.guard';
 import { NewsService } from './services/news.service';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -58,10 +60,11 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     PdfViewerModule,
     DialogModule,
     CalendarModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    SpeedDialModule
   ],
   entryComponents: [],
-  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService],
+  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
