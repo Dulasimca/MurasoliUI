@@ -342,9 +342,15 @@ ngx-extended-pdf-viewer .html .toolbar *, ngx-extended-pdf-viewer .html .treeIte
     color: #d5d5d6;
 }
 ngx-extended-pdf-viewer .html .toolbarField.pageNumber {
-    color:#000000 !important;
+    color: #000000 !important;
+    // background: #000000 !important;
+    // color:#000000 !important;
 }
 ngx-extended-pdf-viewer select {
-    color:#000000 !important;
+    color: #000000 !important;
+    background-color: #000000 !important;
+    // color:#000000 !important;
 }
+
+
 
