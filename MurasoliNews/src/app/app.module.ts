@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogModule } from 'primeng/dialog';
 import { CalendarModule } from 'primeng/calendar';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -29,6 +30,8 @@ import { DataSharingService } from './services/data-sharing.service';
 import { Converter } from './helper/converter';
 import { AuthGuard } from './services/auth.guard';
 import { NewsService } from './services/news.service';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -56,10 +59,12 @@ import { NewsService } from './services/news.service';
     HttpClientModule,
     PdfViewerModule,
     DialogModule,
-    CalendarModule
+    CalendarModule,
+    NgxExtendedPdfViewerModule,
+    SpeedDialModule
   ],
   entryComponents: [],
-  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService],
+  providers: [AuthService, RestapiService, DatePipe, DataSharingService, Converter, AuthGuard, NewsService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

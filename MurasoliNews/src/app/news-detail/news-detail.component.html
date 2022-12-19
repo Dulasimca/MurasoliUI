@@ -1,4 +1,4 @@
-<div class="col-12 md:col-12 lg:col-12">
+<div #capture id="capture" class="col-12 md:col-12 lg:col-12">
     <div class="bar-dark"></div>
     <div class="grid grid-center">
         <div #rows class="col-12 md:col-12 lg:col-12 no-pad-top">
@@ -8,19 +8,40 @@
                 </span>
             </div>
             <div class="col-12 bdr-horizontal-light"></div>
-            <div class="grid grid-center">
+            <div *ngIf="hasImg" class="grid grid-center">
                 <div class="col-8">
-                    <img src="assets/images/news/newsImg.jpg" style="width: -webkit-fill-available !important;" />
+                    <img [src]="imgSrc" style="width: -webkit-fill-available !important;height: 450px;" />
                 </div>
             </div>
-            <div class="bdr-horizontal-light"></div>
-            <div class="txt-small">{{incidentDate}}</div>
+            <div *ngIf="hasImg" class="col-12 bdr-horizontal-light"></div>
+            <div class="col-12 no-pad-top no-pad-btm txt-small" style="text-align: start;">
+                <div class="grid">
+                    <div class="col-6 no-pad">
+                       <span style="color: #2e2a2ade;font-size: 13px;"><b>{{paperTitle}}</b></span> &nbsp; | &nbsp; {{incidentDate}}
+                    </div>
+                    <div class="col-6 no-pad">
+                        <span>
+                            <i class="pi pi-fw pi-facebook" style="font-size: 1.28rem;color: #365899;" (click)="share('_FB')"></i>
+                            <i class="pi pi-fw pi-twitter" style="font-size: 1.28rem;color: #1d9bf0;" (click)="share('_TW')"></i>
+                            <a #mail [href]="href" (click)="share('_MA')">
+                                <i class="pi pi-fw pi-envelope" style="font-size: 1.28rem;color: #ec2a2ade;">
+                                </i>
+                            </a>
+                            <i class="pi pi-fw pi-whatsapp" style="font-size: 1.28rem;color: #449e48;" (click)="share('_WA')"></i>
+                            <i class="pi pi-fw pi-send" style="font-size: 1.28rem;color: #1a8ad5;" (click)="share('_TG')"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 bdr-horizontal-light"></div>
             <div class="grid grid-center">
                 <div class="col-10 news-content-small no-pad" *ngFor="let i of list">
                     <!--  -->
                     <p style="text-align: left;">{{i}}</p>
                 </div>
+            </div>
+            <div>
+                <img [src]=""/>
             </div>
         </div>
     </div>

@@ -27,8 +27,13 @@ export class Converter {
         return this.value;
     }
 
-    convertMonth(date?: string): string {
-        var temp = date!.toString().split(',');
+    convertMonth(type: number, date?: string): string {
+        var temp;
+        if (type == 1) {
+            temp = date!.toString().split(',');
+        } else {
+            temp = date!.toString().split(' ');
+        }
         var value = temp[0].toString().toUpperCase();
         switch (value) {
             case 'JAN':

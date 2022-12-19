@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { Converter } from '../helper/converter';
+import { DataSharingService } from '../services/data-sharing.service';
 import { NewsService } from '../services/news.service';
 import { RestapiService } from '../services/restapi.service';
 
@@ -19,23 +20,20 @@ export class DistrictNewsComponent implements OnInit {
   district: any;
   districts?: any = [];
   constructor(private _router: Router, private _restApiService: RestapiService,
-    private _datepipe: DatePipe, private _converter: Converter, private _newsService: NewsService) { }
+    private _newsService: NewsService, private _dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
     this.loadNews();
     this._newsService.getDistrict();
+    this._dataSharing.removeNewsData();
   }
 
   loadNews() {
     this._restApiService.get('MainNewsEntry/GetMainNewsEntry').subscribe(res => {
-      if(res) {
-        res.Table.forEach((x: any) => {
-          var date = this._datepipe.transform(x.g_incidentdate, 'MMM,dd h:mm a');
-          const incidentDate = this._converter.convertMonth(date?.toString());
-          x.incidentDate = incidentDate;
-          this.newsDetails.push(x);
-          this.newsAllData = this.newsDetails.slice(0);
-        })
+      if (res) {
+        var response = this._newsService.createObject(res.Table);
+        this.newsDetails = response;
+        this.newsAllData = this.newsDetails.slice(0);
       }
     });
   }
@@ -51,8 +49,7 @@ export class DistrictNewsComponent implements OnInit {
   onSelectDistrict() {
     var data: any = [];
     this.districts = this._newsService.district;
-    console.log('dit', this.districts)
-    if(this.districts) {
+    if (this.districts) {
       this.districts.Table.forEach((d: any) => {
         data.push({ label: d.g_districtnametamil, value: d.g_districtid, engLabel: d.g_districtnametamil });
       })
@@ -60,7 +57,8 @@ export class DistrictNewsComponent implements OnInit {
     }
   }
 
-  onNavigate() {
+  onNavigate(data: any) {
+    this._dataSharing.setNewsData(data);
     this._router.navigate(['/news-detail']);
   }
 

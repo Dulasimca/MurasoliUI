@@ -3,6 +3,11 @@
 @import url("../node_modules/primeng/resources/themes/saga-green/theme.css");
 @import url("../node_modules/primeng/resources/primeng.min.css");
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0 !important;
     // background: #a00000 !important;
@@ -19,6 +24,14 @@ h3 {
 p {
     margin-block-start: .5em !important;
     margin-block-end: .5em !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.cursor {
+    cursor: pointer;
 }
 
 .txt-ctr {
@@ -57,6 +70,7 @@ p {
 .news-title {
     font-size: 15px;
     font-weight: 600;
+    overflow-wrap: break-word;
 }
 
 .txt-small {
@@ -123,6 +137,8 @@ p {
 //   }
 
 /// ------------ primeng styles ------------------
+/// 
+
 ///menu
 .p-menubar {
     padding: 0 !important;
@@ -144,12 +160,14 @@ p {
 .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-submenu-icon {
     font-weight: 500 !important;
     color: black !important;
+    margin-right: 0.25rem !important;
     // color: #ddd9d9 !important;
 }
 
 .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link .p-menuitem-icon {
     font-weight: 500 !important;
     color: black !important;
+    margin-right: 0.25rem !important;
     // color: #ddd9d9 !important;
 }
 
@@ -182,12 +200,14 @@ p {
 
 .p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link,
 .p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link:not(.p-disabled):hover {
-    background: #d40505 !important;
+    background: #eb0000 !important;
+    // background: #d40505 !important;
     // background: #262626 !important;
 }
 
 .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-link:not(.p-disabled):hover {
-    background: #d40505 !important;
+    background: #eb0000 !important;
+    // background: #d40505 !important;
     // background: #262626 !important;
 }
 
@@ -214,13 +234,21 @@ p {
 }
 
 .p-menubar .p-menuitem.p-menuitem-active>.p-menuitem-link {
-    background: #b90909 !important;
+    // background: #b90909 !important;
     // background: #333 !important;
+    background: #eb0000 !important;
+    border: 1px solid #b90909 !important; 
 }
 
 .p-menubar .p-menuitem-link:not(.p-disabled):hover {
-    background: #b90909 !important;
+    // background: #b90909 !important;
     // background: #333 !important;
+    background: #eb0000 !important;
+    // border: 1px solid #b90909 !important; 
+}
+.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {
+    // background: #b90909 !important;
+    background: #eb0000 !important;
 }
 
 .p-menubar .p-menuitem-link:focus {
@@ -253,21 +281,76 @@ p {
     border-color: #b90909 !important;
     box-shadow: 0 0 0 0.1rem #f85b5b !important;
 }
+.p-inputtext:enabled:focus {
+    box-shadow: 0 0 0 .15rem #f85b5b !important;
+    border-color: #b90909 !important;
+    // border: 2px solid #18A558 !important;
+}
+.p-inputtext:enabled:hover {
+    border-color: #b90909 !important;
+}
+.p-datepicker .p-datepicker-header .p-datepicker-prev:focus, .p-datepicker .p-datepicker-header .p-datepicker-next:focus {
+    box-shadow: 0 0 0 0.2rem #f85b5b !important;
+}
+.p-datepicker table td > span:focus {
+    box-shadow: 0 0 0 0.2rem #f85b5b !important;
+}
+.p-datepicker table td.p-datepicker-today > span {
+    font-weight: 500 !important;
+    background: #b90909 !important;
+    color: #1e1e20 !important;
+    font-size: 18px !important;
+}
+.p-datepicker table td > span.p-highlight {
+    background: #ffcece !important;
+}
 .p-button {
     color: #000000 !important;
     background: #b90909 !important;
     border: 1px solid #383636 !important;
 }
+.p-button:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #f85b5b !important;
+}
 .ng2-pdf-viewer-container {
     overflow-x: hidden !important;
 }
-
-html,
-body {
-    height: 100%;
+.p-datepicker table td {
+    padding: 0.05rem !important;
+}
+.p-datepicker .p-datepicker-header {
+    padding: 0 !important;
 }
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+.p-speeddial-button.p-button.p-button-icon-only .p-button-icon {
+    font-size: 1rem !important;
 }
+.p-speeddial-button.p-button.p-button-icon-only {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+}
+.p-speeddial-list {
+    margin: 0.5rem 0 !important;
+}
+ngx-extended-pdf-viewer #toolbarViewer {
+    min-height: 32px;
+    background: #1f1e1e !important;
+}
+ngx-extended-pdf-viewer .html .toolbar *, ngx-extended-pdf-viewer .html .treeItem * {
+    color: #d5d5d6;
+}
+ngx-extended-pdf-viewer .html .toolbarField.pageNumber {
+    color: #000000 !important;
+    // background: #000000 !important;
+    // color:#000000 !important;
+}
+ngx-extended-pdf-viewer select {
+    color: #000000 !important;
+    background-color: #000000 !important;
+    // color:#000000 !important;
+}
+
+
+
