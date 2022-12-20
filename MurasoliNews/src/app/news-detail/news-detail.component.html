@@ -35,9 +35,7 @@
             </div>
             <div class="col-12 bdr-horizontal-light"></div>
             <div class="grid grid-center">
-                <div class="col-10 news-content-small no-pad" *ngFor="let i of list">
-                    <!--  -->
-                    <p style="text-align: left;">{{i}}</p>
+                <div class="col-10 news-content-small no-pad" [innerHTML]="newsDetail">
                 </div>
             </div>
             <div>

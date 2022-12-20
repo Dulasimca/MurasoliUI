@@ -17,7 +17,6 @@ export class NewsDetailComponent implements OnInit {
   incidentDate: any;
   newsDetail: string = '';
   imgSrc: any;
-  list: any[] = [];
   hasImg: boolean = false;
   paperTitle: string = '';
   navUrl: string = '';
@@ -41,7 +40,6 @@ export class NewsDetailComponent implements OnInit {
         this.headLine = data.g_newstitletamil;
         this.incidentDate = incidentDate;
         this.newsDetail = data.g_newsdetailstamil;
-        this.list = (this.newsDetail) ? this.newsDetail.toString().split(',') : [];
         this.hasImg = (data.g_image && data.g_image !== '') ? true : false;
         this.imgSrc = this._dataSharing.imgURL + data.g_image;
       }
