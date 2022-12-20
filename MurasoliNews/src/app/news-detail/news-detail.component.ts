@@ -28,6 +28,7 @@ export class NewsDetailComponent implements OnInit {
     private _snapshot: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log('new')
     this._snapshot.queryParams.subscribe(value => {
       this.storyId = value['storyid'];
     })

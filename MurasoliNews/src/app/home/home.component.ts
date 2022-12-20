@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
   }
 
   onNavigate(data: any) {
-    this._router.navigate(['/news-detail'], {queryParams: { storyid: data.storyId }});
+    this._router.navigate(['/newscontent'], {queryParams: { storyid: data.storyId }});
   }
 
 }
