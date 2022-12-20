@@ -14,18 +14,6 @@ export class DataSharingService {
   whatsappShareUrl: string = 'https://api.whatsapp.com/send?&text=';
   telegramShareUrl: string = 'https://t.me/share/url?';
 
-  setNewsData(data: any) {
-    localStorage.setItem('NEWS-DETAIL', JSON.stringify(data));
-  }
-
-  getNewsData() {
-    return JSON.parse(localStorage.getItem('NEWS-DETAIL') as any);
-  }
-
-  removeNewsData() {
-    localStorage.removeItem('NEWS-DETAIL');
-  }
-
   shareNews(type: string, shareUrl: string) {
     let searchParams = new URLSearchParams();
     let returnValue = null;

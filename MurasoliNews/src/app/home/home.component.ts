@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this._authService.home();
     this.loadContent();
-    this._dataSharing.removeNewsData();
   }
 
   loadContent() {
@@ -55,7 +54,8 @@ export class HomeComponent implements OnInit {
                   incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
-                  hasImg: (data.g_image && data.g_image !== '') ? true : false
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false,
+                  storyId: data.g_slno
                 }
               );
               setLeftCount++;
@@ -67,7 +67,8 @@ export class HomeComponent implements OnInit {
                   incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.imgURL + data.g_image,
-                  hasImg: (data.g_image && data.g_image !== '') ? true : false
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false,
+                  storyId: data.g_slno
                 }
               );
             }
@@ -78,7 +79,8 @@ export class HomeComponent implements OnInit {
                   incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.imgURL + data.g_image,
-                  hasImg: (data.g_image && data.g_image !== '') ? true : false
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false,
+                  storyId: data.g_slno
                 }
               );
               setCenterCount++;
@@ -90,7 +92,8 @@ export class HomeComponent implements OnInit {
                   incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
-                  hasImg: (data.g_image && data.g_image !== '') ? true : false
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false,
+                  storyId: data.g_slno
                 }
               );
               setRightCount++;
@@ -102,7 +105,8 @@ export class HomeComponent implements OnInit {
                   incidentShortDate: incidentShortDate, incidentDate: incidentDate, headLine: data.g_newstitletamil,
                   newsShort: data.g_newsshorttamil, newsDetail: data.g_newsdetailstamil,
                   img: data.g_image, imgURL: this._dataSharing.smallImgURL + data.g_image,
-                  hasImg: (data.g_image && data.g_image !== '') ? true : false
+                  hasImg: (data.g_image && data.g_image !== '') ? true : false,
+                  storyId: data.g_slno
                 }
               );
               setBottomCount++;
@@ -126,8 +130,7 @@ export class HomeComponent implements OnInit {
   }
 
   onNavigate(data: any) {
-    this._dataSharing.setNewsData(data);
-    this._router.navigate(['/news-detail']);
+    this._router.navigate(['/news-detail'], {queryParams: { storyid: data.storyId }});
   }
 
 }

@@ -1,6 +1,11 @@
+import { DatePipe } from '@angular/common';
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Converter } from '../helper/converter';
 import { DataSharingService } from '../services/data-sharing.service';
 import { NewsService } from '../services/news.service';
+import { RestapiService } from '../services/restapi.service';
 
 @Component({
   selector: 'app-news-detail',
@@ -17,17 +22,30 @@ export class NewsDetailComponent implements OnInit {
   paperTitle: string = '';
   navUrl: string = '';
   href: string = '';
-  constructor(private _dataSharing: DataSharingService) { }
+  storyId: any;
+  constructor(private _dataSharing: DataSharingService, private _datepipe: DatePipe,
+    private _restApiService: RestapiService, private _converter: Converter,
+    private _snapshot: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this._snapshot.queryParams.subscribe(value => {
+      this.storyId = value['storyid'];
+    })
+    const params = new HttpParams().append('_storyId', this.storyId);
     this.paperTitle = this._dataSharing.paperName;
-    var data = this._dataSharing.getNewsData();
-    this.headLine = data.headLine;
-    this.incidentDate = data.incidentDate;
-    this.newsDetail = data.newsDetail;
-    this.list = (this.newsDetail) ? this.newsDetail.toString().split(',') : [];
-    this.hasImg = (data.img && data.img !== '') ? true : false;
-    this.imgSrc = this._dataSharing.imgURL + data.img;
+    this._restApiService.getByParameters('MainNewsEntry/GetMainNewsEntryById', params).subscribe(res => {
+      if (res) {
+        var data = res.Table[0];
+        var fullDate = this._datepipe.transform(data.g_incidentdate, 'MMM dd,yyyy h:mm a');
+        const incidentDate = this._converter.convertMonth(2, fullDate?.toString());
+        this.headLine = data.g_newstitletamil;
+        this.incidentDate = incidentDate;
+        this.newsDetail = data.g_newsdetailstamil;
+        this.list = (this.newsDetail) ? this.newsDetail.toString().split(',') : [];
+        this.hasImg = (data.g_image && data.g_image !== '') ? true : false;
+        this.imgSrc = this._dataSharing.imgURL + data.g_image;
+      }
+    });
   }
 
   share(type: string) {
@@ -41,6 +59,4 @@ export class NewsDetailComponent implements OnInit {
     }
     return returnValue;
   }
-
-
 }

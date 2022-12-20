@@ -20,12 +20,11 @@ export class DistrictNewsComponent implements OnInit {
   district: any;
   districts?: any = [];
   constructor(private _router: Router, private _restApiService: RestapiService,
-    private _newsService: NewsService, private _dataSharing: DataSharingService) { }
+    private _newsService: NewsService) { }
 
   ngOnInit(): void {
     this.loadNews();
     this._newsService.getDistrict();
-    this._dataSharing.removeNewsData();
   }
 
   loadNews() {
@@ -58,8 +57,7 @@ export class DistrictNewsComponent implements OnInit {
   }
 
   onNavigate(data: any) {
-    this._dataSharing.setNewsData(data);
-    this._router.navigate(['/news-detail']);
+    this._router.navigate(['/news-detail'], {queryParams: { storyid: data.storyId }});
   }
 
 }

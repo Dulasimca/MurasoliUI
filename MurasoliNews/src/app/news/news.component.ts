@@ -16,8 +16,7 @@ export class NewsComponent implements OnInit {
   title: string = '';
   newsList: any = [];
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
-    private _restApiService: RestapiService, private _dataSharing: DataSharingService,
-    private _newsService: NewsService) { 
+    private _restApiService: RestapiService, private _newsService: NewsService) { 
     this._activatedRoute.queryParams.subscribe(params => {
       this.title = (params['id'] === '1') ? 'மாநில செய்திகள்' : 'தேசிய செய்திகள்';
     });
@@ -25,7 +24,6 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNews();
-    this._dataSharing.removeNewsData();
   }
 
   loadNews() {
@@ -38,8 +36,7 @@ export class NewsComponent implements OnInit {
   }
 
   onNavigate(data: any) {
-    this._dataSharing.setNewsData(data);
-    this._router.navigate(['/news-detail']);
+    this._router.navigate(['/news-detail'], {queryParams: { storyid: data.storyId }});
   }
 
 }
